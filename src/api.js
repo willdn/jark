@@ -17,7 +17,7 @@ let currentNetwork = networksType.MAIN
 
 /**
  */
-export const init = (netowrk) => {
+export const init = (netowrk = networksType.MAIN.label) => {
   setNetwork(netowrk)
 }
 
@@ -42,13 +42,13 @@ export const query = (url, params) => {
  * @return {string} Endpoint
  */
 export const getEndpoint = () => {
-  return 'https://dev.arkcoin.net'
-  // if (store.getters.networkType.label === 'Test') return 'https://dev.arkcoin.net'
+  if (getNetwork() === networksType.MAIN) return 'https://node1.arknet.cloud'
+  if (getNetwork() === networksType.DEV) return 'https://dev.arkcoin.net'
 }
 
 /**
  * Get network
- * @return {Promise<Response>} Query resylt
+ * @return {Object} Current network
  */
 export const getNetwork = () => {
   return currentNetwork

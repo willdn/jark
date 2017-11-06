@@ -3,15 +3,9 @@ import * as api from '../src'
 
 describe('API', () => {
 
-  describe('api.getEndpoint()', () => {
-    it('should return api endpoint', () => {
-      const endpoint = api.getEndpoint()
-      expect(endpoint).to.be.equal('https://dev.arkcoin.net')
-    })
-  })
-
   describe('api.init()', () => {
     it('should be Mainnet by default', () => {
+      api.init()
       expect(api.getNetwork().label).to.be.equal('Main')
     })
     it('should init api and set network to dev', () => {
@@ -21,7 +15,7 @@ describe('API', () => {
   })
 
   describe('api.setNetwork()', () => {
-    it('should be Mainnet by default', () => {
+    it('should set network to main', () => {
       api.setNetwork('Main')
       expect(api.getNetwork().label).to.be.equal('Main')
     })

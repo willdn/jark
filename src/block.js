@@ -46,3 +46,14 @@ export const getBlockchainFee = () => {
     return res.fee
   })
 }
+
+/**
+ * Get net hash
+ * @return {Promise<Response>} Nethash
+ */
+export const getNetHash = () => {
+  return query(`api/blocks/getNetHash`)
+  .then((res) => {
+    return res.nethash
+  })
+}

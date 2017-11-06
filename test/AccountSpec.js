@@ -4,7 +4,8 @@ import * as api from '../src'
 const address = 'DSCgKwRrKM2QNo4nrbSTwbW6fN5i7ZXjRu'
 
 describe('account', () => {
-
+  api.setNetwork('Dev')
+  
   describe('api.getBalance()', () => {
     it('should return balance from address', () => {
       return api.getBalance(address)
