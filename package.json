@@ -2,7 +2,7 @@
   "name": "jark",
   "version": "0.0.2",
   "description": "JavaScript library to query and make transaction on the Ark blockchain",
-  "author": "willdn",
+  "author": "William Dens <denswilliam1@gmail.com>",
   "license": "MIT",
   "keywords": [],
   "main": "index.js",
