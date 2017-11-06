@@ -23,7 +23,7 @@ describe('account', () => {
     it('should return account details from address', () => {
       return account.getAccount(address)
         .then((res) => {
-          expect(res.account.address).to.be.equal(address)
+          expect(res.address).to.be.equal(address)
         })
         .catch((e) => {
           console.log(e)
@@ -34,7 +34,7 @@ describe('account', () => {
 
   describe('account.getTransactions()', () => {
     it('should return transactions from address', () => {
-      return account.getBalance(address)
+      return account.getTransactions(address)
         .then((res) => {
           expect(res.length).to.be.equal(2)
         })

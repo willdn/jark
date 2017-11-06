@@ -24,7 +24,7 @@ export const getBalance = (address) => {
 export const getAccount = (address) => {
   return axios.get(`${getEndpoint()}/api/accounts?address=${address}`)
   .then((res) => {
-    return res.account
+    return res.data.account
   })
   .catch((err) => {
     if (err) console.log(err)
