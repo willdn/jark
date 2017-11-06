@@ -30,7 +30,12 @@ jark.getBlocksHeight()
   .then((height) => {
     console.log(height); // Return 1727011
   });
-``` 
+```
+
+## Documentation
+- [Accounts](/docs/accounts.md)
+- [Blocks](/docs/blocks.md)
+- WIP
 
 ## Build
 
