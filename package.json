@@ -1,8 +1,7 @@
 {
-  "private": true,
   "name": "jark",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.0.2",
+  "description": "JavaScript library to query and make transaction on the Ark blockchain",
   "author": "willdn",
   "license": "MIT",
   "keywords": [],
