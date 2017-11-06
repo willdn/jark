@@ -13,6 +13,7 @@ export const networksType = {
 }
 
 export const arkjs = ark
+let currentNetwork = networksType.MAIN
 
 /**
  */
@@ -46,26 +47,25 @@ export const getEndpoint = () => {
 }
 
 /**
+ * Get network
+ * @return {Promise<Response>} Query resylt
+ */
+export const getNetwork = () => {
+  return currentNetwork
+}
+
+/**
  * Set network
  * @param {string} - Network name to use
  * @return {Promise<Response>} Query resylt
  */
 export const setNetwork = (netowrk) => {
   if (netowrk === networksType.DEV.label) {
+    currentNetwork = networksType.DEV
     arkjs.crypto.setNetworkVersion(networksType.DEV.version)
     return
   } else if (netowrk === networksType.MAIN.label) {
+    currentNetwork = networksType.MAIN
     arkjs.crypto.setNetworkVersion(networksType.MAIN.version)
   }
-}
-
-/**
- * Get node peers
- * @return {Promise<Response>} Array of node peers
- */
-export const getPeers = () => {
-  return query(`/api/peers`)
-  .then((res) => {
-    return res.peers
-  })
 }
