@@ -45,4 +45,31 @@ describe('delegate', () => {
         })
     })
   })
+
+  describe('delegate.getNextForgers()', () => {
+    it('should return next forgers delegate list', () => {
+      return delegate.getNextForgers()
+        .then((res) => {
+          expect(res).to.be.an('array')
+        })
+        .catch((e) => {
+          console.log(e)
+          throw e
+        })
+    })
+  })
+
+  describe('delegate.getDelegateVoters()', () => {
+    it('should return voters list from delegate', () => {
+      return delegate.getDelegateVoters('03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad')
+        .then((res) => {
+          expect(res).to.be.an('array')
+        })
+        .catch((e) => {
+          console.log(e)
+          throw e
+        })
+    })
+  })
+
 })

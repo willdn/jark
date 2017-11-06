@@ -42,3 +42,31 @@ export const getByPublicKey = (publicKey) => {
     if (err) console.log(err)
   })
 }
+
+/**
+ * Return next forgers delegates list
+ * @return {Promise<Response>} Delegates list
+ */
+export const getNextForgers = (publicKey) => {
+  return axios.get(`${getEndpoint()}/api/delegates/getNextForgers`)
+  .then((res) => {
+    return res.data.delegates
+  })
+  .catch((err) => {
+    if (err) console.log(err)
+  })
+}
+
+/**
+ * Return voters list from delegeates
+ * @return {Promise<Response>} Voters list
+ */
+export const getDelegateVoters = (publicKey) => {
+  return axios.get(`${getEndpoint()}/api/delegates/voters?publicKey=${publicKey}`)
+  .then((res) => {
+    return res.data.accounts
+  })
+  .catch((err) => {
+    if (err) console.log(err)
+  })
+}
