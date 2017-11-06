@@ -60,6 +60,19 @@ describe('account', () => {
     })
   })
 
+  describe('api.getDelegatesFee()', () => {
+    it('should return delegates fee', () => {
+      return api.getDelegatesFee()
+        .then((res) => {
+          expect(res).to.be.a('number')
+        })
+        .catch((e) => {
+          console.log(e)
+          throw e
+        })
+    })
+  })
+
   describe('api.getPublicKey()', () => {
     it('should return public key from address', () => {
       return api.getPublicKey(address)

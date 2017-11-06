@@ -16,12 +16,6 @@ export const arkjs = ark
 let currentNetwork = networksType.MAIN
 
 /**
- */
-export const init = (netowrk = networksType.MAIN.label) => {
-  setNetwork(netowrk)
-}
-
-/**
  * Query API
  * @return {Promise<Response>} Query result
  */
@@ -42,8 +36,8 @@ export const query = (url, params) => {
  * @return {string} Endpoint
  */
 export const getEndpoint = () => {
-  if (getNetwork() === networksType.MAIN) return 'https://node1.arknet.cloud'
-  if (getNetwork() === networksType.DEV) return 'https://dev.arkcoin.net'
+  if (getNetwork().label === networksType.MAIN.label) return 'https://node1.arknet.cloud'
+  if (getNetwork().label === networksType.DEV.label) return 'https://dev.arkcoin.net'
 }
 
 /**

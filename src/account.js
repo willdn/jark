@@ -70,3 +70,14 @@ export const getDelegatesFromAddress = (address) => {
     return res.delegates
   })
 }
+
+/**
+ * Get the delegates fee
+ * @return {Promise<Response>} Delegates fee
+ */
+export const getDelegatesFee = () => {
+  return query(`api/accounts/delegates/fee`)
+  .then((res) => {
+    return res.fee
+  })
+}
