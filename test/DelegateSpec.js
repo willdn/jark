@@ -1,11 +1,11 @@
 import { expect } from 'chai'
-import * as delegate from '../src/delegate'
+import * as api from '../src'
 
 describe('delegate', () => {
 
-  describe('delegate.getDelegates()', () => {
+  describe('api.getDelegates()', () => {
     it('should return top delegates list', () => {
-      return delegate.getDelegates()
+      return api.getDelegates()
         .then((res) => {
           expect(res).to.be.an('array')
           expect(res.length).to.be.equal(51)
@@ -17,9 +17,9 @@ describe('delegate', () => {
     })
   })
 
-  describe('delegate.getByUsername()', () => {
+  describe('api.getByUsername()', () => {
     it('should return delegate by username', () => {
-      return delegate.getByUsername('darkjarunik')
+      return api.getByUsername('darkjarunik')
         .then((res) => {
           expect(res).to.be.an('object')
           expect(res.username).to.be.equal('darkjarunik')
@@ -31,9 +31,9 @@ describe('delegate', () => {
     })
   })
 
-  describe('delegate.getByPublicKey()', () => {
+  describe('api.getByPublicKey()', () => {
     it('should return delegate by public key', () => {
-      return delegate.getByPublicKey('03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad')
+      return api.getByPublicKey('03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad')
         .then((res) => {
           expect(res).to.be.an('object')
           expect(res.username).to.be.equal('darkjarunik')
@@ -46,9 +46,9 @@ describe('delegate', () => {
     })
   })
 
-  describe('delegate.getNextForgers()', () => {
+  describe('api.getNextForgers()', () => {
     it('should return next forgers delegate list', () => {
-      return delegate.getNextForgers()
+      return api.getNextForgers()
         .then((res) => {
           expect(res).to.be.an('array')
         })
@@ -59,9 +59,9 @@ describe('delegate', () => {
     })
   })
 
-  describe('delegate.getDelegateVoters()', () => {
+  describe('api.getDelegateVoters()', () => {
     it('should return voters list from delegate', () => {
-      return delegate.getDelegateVoters('03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad')
+      return api.getDelegateVoters('03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad')
         .then((res) => {
           expect(res).to.be.an('array')
         })

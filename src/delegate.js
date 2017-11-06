@@ -1,17 +1,14 @@
 import axios from 'axios'
-import { getEndpoint } from './api'
+import { query } from './api'
 
 /**
  * Return delegates list
  * @return {Promise<Response>} Array of delegates
  */
 export const getDelegates = () => {
-  return axios.get(`${getEndpoint()}/api/delegates`)
+  return query(`api/delegates`)
   .then((res) => {
-    return res.data.delegates
-  })
-  .catch((err) => {
-    if (err) console.log(err)
+    return res.delegates
   })
 }
 
@@ -21,12 +18,11 @@ export const getDelegates = () => {
  * @return {Promise<Response>} Delegate infos
  */
 export const getByUsername = (username) => {
-  return axios.get(`${getEndpoint()}/api/delegates/get?username=${username}`)
-  .then((res) => {
-    return res.data.delegate
+  return query(`api/delegates/get`, {
+    username: username
   })
-  .catch((err) => {
-    if (err) console.log(err)
+  .then((res) => {
+    return res.delegate
   })
 }
 
@@ -36,12 +32,11 @@ export const getByUsername = (username) => {
  * @return {Promise<Response>} Delegate infos
  */
 export const getByPublicKey = (publicKey) => {
-  return axios.get(`${getEndpoint()}/api/delegates/get?publicKey=${publicKey}`)
-  .then((res) => {
-    return res.data.delegate
+  return query(`api/delegates/get`, {
+    publicKey: publicKey
   })
-  .catch((err) => {
-    if (err) console.log(err)
+  .then((res) => {
+    return res.delegate
   })
 }
 
@@ -50,12 +45,9 @@ export const getByPublicKey = (publicKey) => {
  * @return {Promise<Response>} Delegates list
  */
 export const getNextForgers = () => {
-  return axios.get(`${getEndpoint()}/api/delegates/getNextForgers`)
+  return query(`api/delegates/getNextForgers`)
   .then((res) => {
-    return res.data.delegates
-  })
-  .catch((err) => {
-    if (err) console.log(err)
+    return res.delegates
   })
 }
 
@@ -65,11 +57,10 @@ export const getNextForgers = () => {
  * @return {Promise<Response>} Voters list
  */
 export const getDelegateVoters = (publicKey) => {
-  return axios.get(`${getEndpoint()}/api/delegates/voters?publicKey=${publicKey}`)
-  .then((res) => {
-    return res.data.accounts
+  return query(`api/delegates/voters`, {
+    publicKey: publicKey
   })
-  .catch((err) => {
-    if (err) console.log(err)
+  .then((res) => {
+    return res.accounts
   })
 }

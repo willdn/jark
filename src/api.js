@@ -15,8 +15,14 @@ export const networksType = {
 export const arkjs = ark
 
 /**
+ */
+export const init = (netowrk) => {
+  setNetwork(netowrk)
+}
+
+/**
  * Query API
- * @return {Promise<Response>} Query resylt
+ * @return {Promise<Response>} Query result
  */
 export const query = (url, params) => {
   return axios.get(`${getEndpoint()}/${url}`, {

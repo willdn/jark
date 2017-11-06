@@ -1,18 +1,15 @@
 import axios from 'axios'
 // import arkjs from 'arkjs'
-import { getEndpoint, arkjs, setNetwork } from './api'
+import { query, arkjs, setNetwork } from './api'
 
 /**
  * Get transactions list
  * @return {Promise<Response>} Transactions list
  */
 export const getTransactionsList = () => {
-  return axios.get(`${getEndpoint()}/api/transactions`)
+  return query(`api/transactions`)
   .then((res) => {
-    return res.data.transactions
-  })
-  .catch((err) => {
-    if (err) console.log(err)
+    return res.transactions
   })
 }
 
@@ -22,12 +19,11 @@ export const getTransactionsList = () => {
  * @return {Promise<Response>} Transaction details
  */
 export const getTransaction = (txid) => {
-  return axios.get(`${getEndpoint()}/api/transactions/get?id=${txid}`)
-  .then((res) => {
-    return res.data.transaction
+  return query(`api/transactions/get`, {
+    id: txid
   })
-  .catch((err) => {
-    if (err) console.log(err)
+  .then((res) => {
+    return res.transaction
   })
 }
 
@@ -38,7 +34,6 @@ export const getTransaction = (txid) => {
  */
 export const createTransaction = (data) => {
   let amount = data.amount * Math.pow(10, 8)
-  setNetwork('Dev')
   return arkjs.transaction.createTransaction(
     data.to,
     amount,

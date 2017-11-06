@@ -1,11 +1,11 @@
 import { expect } from 'chai'
-import * as transaction from '../src/transaction'
+import * as api from '../src'
 
 describe('Transaction', () => {
 
   describe('api.getTransactionsList()', () => {
     it('should return transactions list', () => {
-      return transaction.getTransactionsList()
+      return api.getTransactionsList()
       .then((res) => {
         expect(res).to.be.an('array')
       })
@@ -18,7 +18,7 @@ describe('Transaction', () => {
 
   describe('api.getTransaction()', () => {
     it('should return transactions details', () => {
-      return transaction.getTransaction('a4f17700b9ec74da9283c522ddac26da6974930769c8437396df50a778b6ffbf')
+      return api.getTransaction('a4f17700b9ec74da9283c522ddac26da6974930769c8437396df50a778b6ffbf')
       .then((res) => {
         expect(res).to.be.an('object')
         expect(res.senderId).to.be.equal('D5GcwQbPasZPmZvbPUc3bgDcvhpFT5Q36q')
@@ -32,7 +32,8 @@ describe('Transaction', () => {
 
   describe('api.createTransaction()', () => {
     it('should return transaction', () => {
-      const tx = transaction.createTransaction({
+      api.setNetwork('Dev')
+      const tx = api.createTransaction({
         to: 'DGd99C51SgwyEPqnxgxDNzbCB7YqHACYZa',
         amount: 1,
         message: null,

@@ -1,13 +1,13 @@
 import { expect } from 'chai'
-import * as account from '../src/account'
+import * as api from '../src'
 
 const address = 'DSCgKwRrKM2QNo4nrbSTwbW6fN5i7ZXjRu'
 
 describe('account', () => {
 
-  describe('account.getBalance()', () => {
+  describe('api.getBalance()', () => {
     it('should return balance from address', () => {
-      return account.getBalance(address)
+      return api.getBalance(address)
         .then((res) => {
           expect(res).to.be.a('number')
           expect(res).to.be.equal(19)
@@ -19,9 +19,9 @@ describe('account', () => {
     })
   })
 
-  describe('account.getAccount()', () => {
+  describe('api.getAccount()', () => {
     it('should return account details from address', () => {
-      return account.getAccount(address)
+      return api.getAccount(address)
         .then((res) => {
           expect(res.address).to.be.equal(address)
         })
@@ -32,9 +32,9 @@ describe('account', () => {
     })
   })
 
-  describe('account.getTransactions()', () => {
+  describe('api.getTransactions()', () => {
     it('should return transactions from address', () => {
-      return account.getTransactions(address)
+      return api.getTransactions(address)
         .then((res) => {
           expect(res.length).to.be.equal(3)
         })
@@ -45,9 +45,9 @@ describe('account', () => {
     })
   })
 
-  describe('account.getDelegates()', () => {
+  describe('api.getDelegatesFromAddress()', () => {
     it('should return delegates from address', () => {
-      return account.getDelegates(address)
+      return api.getDelegatesFromAddress(address)
         .then((res) => {
           expect(res.length).to.be.equal(1)
           expect(res[0].username).to.be.equal('darkjarunik')
@@ -59,9 +59,9 @@ describe('account', () => {
     })
   })
 
-  describe('account.getPublicKey()', () => {
+  describe('api.getPublicKey()', () => {
     it('should return public key from address', () => {
-      return account.getPublicKey(address)
+      return api.getPublicKey(address)
         .then((res) => {
           expect(res).to.be.equal('033e4ea71cf6040e0cb6e4cf1a762a87b10d5f696975a657272d5703517a8c90f6')
         })

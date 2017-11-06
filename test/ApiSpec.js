@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import * as api from '../src/api'
+import * as api from '../src'
 
 describe('API', () => {
 

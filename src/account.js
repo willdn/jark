@@ -63,7 +63,7 @@ export const getTransactions = (address) => {
  * @param {string} - Address to get vote delegates
  * @return {Promise<Response>} Array of delegates
  */
-export const getDelegates = (address) => {
+export const getDelegatesFromAddress = (address) => {
   return query(`api/accounts/delegates`, {
     address: address
   })
