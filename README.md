@@ -10,7 +10,7 @@ JavaScript ARK API wrapper to interact with the [ARK](https://ark.io) blockchain
 
 ## Usage
 
-```
+```js
 var jark = require('jark');
 
 jark.getBlocksHeight()
@@ -30,11 +30,19 @@ jark.getBlocksHeight()
   .then((height) => {
     console.log(height); // Return 1727011
   });
-``` 
+```
+
+## Documentation
+- [Accounts](/docs/accounts.md)
+- [Blocks](/docs/blocks.md)
+- WIP
 
 ## Build
 
-`npm run build`
+``` bash
+npm install
+npm run build
+```
 
 
 ## Test
