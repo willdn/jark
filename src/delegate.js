@@ -17,6 +17,7 @@ export const getDelegates = () => {
 
 /**
  * Return delegates infos by username
+ * @param {string} - Delegate username
  * @return {Promise<Response>} Delegate infos
  */
 export const getByUsername = (username) => {
@@ -31,6 +32,7 @@ export const getByUsername = (username) => {
 
 /**
  * Return delegates infos by public key
+ * @param {string} - Delegate public key
  * @return {Promise<Response>} Delegate infos
  */
 export const getByPublicKey = (publicKey) => {
@@ -47,7 +49,7 @@ export const getByPublicKey = (publicKey) => {
  * Return next forgers delegates list
  * @return {Promise<Response>} Delegates list
  */
-export const getNextForgers = (publicKey) => {
+export const getNextForgers = () => {
   return axios.get(`${getEndpoint()}/api/delegates/getNextForgers`)
   .then((res) => {
     return res.data.delegates
@@ -59,6 +61,7 @@ export const getNextForgers = (publicKey) => {
 
 /**
  * Return voters list from delegeates
+ * @param {string} - Delegate public key
  * @return {Promise<Response>} Voters list
  */
 export const getDelegateVoters = (publicKey) => {
