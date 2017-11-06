@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getEndpoint } from './api'
+import { query } from './api'
 
 /**
  * Get public key from address
@@ -7,12 +7,11 @@ import { getEndpoint } from './api'
  * @return {Promise<Response>} Public key
  */
 export const getPublicKey = (address) => {
-  return axios.get(`${getEndpoint()}/api/accounts/getPublicKey?address=${address}`)
-  .then((res) => {
-    return res.data.publicKey
+  return query(`api/accounts/getPublicKey`, {
+    address: address
   })
-  .catch((err) => {
-    if (err) console.log(err)
+  .then((res) => {
+    return res.publicKey
   })
 }
 
@@ -22,12 +21,11 @@ export const getPublicKey = (address) => {
  * @return {Promise<Response>} Balance
  */
 export const getBalance = (address) => {
-  return axios.get(`${getEndpoint()}/api/accounts/getBalance?address=${address}`)
-  .then((res) => {
-    return res.data.balance / 100000000
+  return query(`api/accounts/getBalance`, {
+    address: address
   })
-  .catch((err) => {
-    if (err) console.log(err)
+  .then((res) => {
+    return res.balance / 100000000
   })
 }
 
@@ -37,12 +35,11 @@ export const getBalance = (address) => {
  * @return {Promise<Response>} Account details
  */
 export const getAccount = (address) => {
-  return axios.get(`${getEndpoint()}/api/accounts?address=${address}`)
-  .then((res) => {
-    return res.data.account
+  return query(`api/accounts`, {
+    address: address
   })
-  .catch((err) => {
-    if (err) console.log(err)
+  .then((res) => {
+    return res.account
   })
 }
 
@@ -52,12 +49,12 @@ export const getAccount = (address) => {
  * @return {Promise<Response>} Transactions
  */
 export const getTransactions = (address) => {
-  return axios.get(`${getEndpoint()}/api/transactions?recipientId=${address}&senderId=${address}`)
-  .then((res) => {
-    return res.data.transactions
+  return query(`api/transactions`, {
+    recipientId: address,
+    senderId: address
   })
-  .catch((err) => {
-    if (err) console.log(err)
+  .then((res) => {
+    return res.transactions
   })
 }
 
@@ -67,11 +64,10 @@ export const getTransactions = (address) => {
  * @return {Promise<Response>} Array of delegates
  */
 export const getDelegates = (address) => {
-  return axios.get(`${getEndpoint()}/api/accounts/delegates?address=${address}`)
-  .then((res) => {
-    return res.data.delegates
+  return query(`api/accounts/delegates`, {
+    address: address
   })
-  .catch((err) => {
-    if (err) console.log(err)
+  .then((res) => {
+    return res.delegates
   })
 }

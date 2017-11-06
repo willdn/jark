@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "arkjs",
+  "name": "ark-js",
   "version": "0.0.0",
   "description": "",
   "author": "willdn",
@@ -22,6 +22,7 @@
     "extends": "airbnb-base"
   },
   "dependencies": {
+    "arkjs": "^0.2.1",
     "axios": "^0.17.0",
     "babel-runtime": "^6.11.6"
   },
