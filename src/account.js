@@ -47,7 +47,7 @@ export const getAccount = (address) => {
  * @param {string} - Address to get transactions from
  * @return {Promise<Response>} Transactions
  */
-export const getTransactions = (address) => {
+export const getTransactionsFromAddress = (address) => {
   return query(`api/transactions`, {
     recipientId: address,
     senderId: address

@@ -16,7 +16,7 @@ export const getTransactionsList = () => {
  * @param {string} - Transaction id
  * @return {Promise<Response>} Transaction details
  */
-export const getTransaction = (txid) => {
+export const getTransactionById = (txid) => {
   return query(`api/transactions/get`, {
     id: txid
   })

@@ -16,9 +16,9 @@ describe('Transaction', () => {
     })
   })
 
-  describe('api.getTransaction()', () => {
+  describe('api.getTransactionById()', () => {
     it('should return transactions details', () => {
-      return api.getTransaction('a4f17700b9ec74da9283c522ddac26da6974930769c8437396df50a778b6ffbf')
+      return api.getTransactionById('a4f17700b9ec74da9283c522ddac26da6974930769c8437396df50a778b6ffbf')
       .then((res) => {
         expect(res).to.be.an('object')
         expect(res.senderId).to.be.equal('D5GcwQbPasZPmZvbPUc3bgDcvhpFT5Q36q')

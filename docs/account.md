@@ -47,7 +47,7 @@ jark.getAccount('Account address')
 Get all the transactions from address
 
 ```js
-jark.getTransactions('Account address')
+jark.getTransactionsFromAddress('Account address')
   .then((transactions) => {
     console.log(transactions); // Return transactions array
   });

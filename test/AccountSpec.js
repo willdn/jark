@@ -33,9 +33,9 @@ describe('account', () => {
     })
   })
 
-  describe('api.getTransactions()', () => {
+  describe('api.getTransactionsFromAddress()', () => {
     it('should return transactions from address', () => {
-      return api.getTransactions(address)
+      return api.getTransactionsFromAddress(address)
         .then((res) => {
           expect(res.length).to.be.equal(3)
         })
