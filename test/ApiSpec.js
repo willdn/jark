@@ -1,23 +1,12 @@
-/**
- * Babel Starter Kit (https://www.kriasoft.com/babel-starter-kit)
- *
- * Copyright © 2015-2016 Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
 import { expect } from 'chai'
 import * as api from '../src/api'
-import * as account from '../src/account'
-import nock from 'nock'
 
 describe('API', () => {
 
   describe('api.getEndpoint()', () => {
     it('should return api endpoint', () => {
       const endpoint = api.getEndpoint()
-      expect(endpoint).to.be.equal('https://node1.arknet.cloud')
+      expect(endpoint).to.be.equal('https://dev.arkcoin.net')
     })
 
   })
@@ -48,21 +37,4 @@ describe('API', () => {
     })
   })
 
-})
-
-describe('account', () => {
-
-  describe('account.getBalance()', () => {
-    it('should return balance from address', () => {
-      return account.getBalance('AeZ4m9btFh4sfuN9KUsjtUm7XFaghikDhK')
-        .then((res) => {
-          expect(res).to.be.a('number')
-          expect(res).to.be.equal(0)
-        })
-        .catch((e) => {
-          console.log(e)
-          throw e
-        })
-    })
-  })
 })

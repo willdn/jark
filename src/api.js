@@ -5,8 +5,22 @@ import axios from 'axios'
  * @return {string} Endpoint
  */
 export const getEndpoint = () => {
-  return 'https://node1.arknet.cloud'
+  return 'https://dev.arkcoin.net'
   // if (store.getters.networkType.label === 'Test') return 'https://dev.arkcoin.net'
+}
+
+/**
+ * Get node peers
+ * @return {Promise<Response>} Array of node peers
+ */
+export const getPeers = () => {
+  return axios.get(`${getEndpoint()}/api/peers`)
+  .then((res) => {
+    return res.data.peers
+  })
+  .catch((err) => {
+    if (err) console.log(err)
+  })
 }
 
 /**

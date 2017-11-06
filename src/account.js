@@ -15,3 +15,33 @@ export const getBalance = (address) => {
     if (err) console.log(err)
   })
 }
+
+/**
+ * Get account details
+ * @param {string} - Address to get details
+ * @return {Promise<Response>} Account details
+ */
+export const getAccount = (address) => {
+  return axios.get(`${getEndpoint()}/api/accounts?address=${address}`)
+  .then((res) => {
+    return res.account
+  })
+  .catch((err) => {
+    if (err) console.log(err)
+  })
+}
+
+/**
+ * Get transaction list
+ * @param {string} - Address to get transactions from
+ * @return {Promise<Response>} Transactions
+ */
+export const getTransactions = (address) => {
+  return axios.get(`${getEndpoint()}/api/transactions?recipientId=${address}&senderId=${address}`)
+  .then((res) => {
+    return res.data.transactions
+  })
+  .catch((err) => {
+    if (err) console.log(err)
+  })
+}
