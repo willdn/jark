@@ -69,25 +69,3 @@ export const getPeers = () => {
     return res.peers
   })
 }
-
-/**
- * Get blockchain height
- * @return {Promise<Response>} Block height
- */
-export const getBlocksHeight = () => {
-  return query(`api/blocks/getHeight`)
-  .then((res) => {
-    return res.height
-  })
-}
-
-/**
- * Get blockchain transaction fee
- * @return {Promise<Response>} Transaction fee
- */
-export const getBlockchainFee = () => {
-  return query(`api/blocks/getFee`)
-  .then((res) => {
-    return res.fee
-  })
-}

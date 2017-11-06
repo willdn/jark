@@ -10,31 +10,5 @@ describe('API', () => {
     })
 
   })
-
-  describe('api.getBlocksHeight()', () => {
-    it('should return block height', () => {
-      return api.getBlocksHeight()
-        .then((res) => {
-          expect(res).to.be.a('number')
-        })
-        .catch((e) => {
-          console.log(e)
-          throw e
-        })
-    })
-  })
-
-  describe('api.getBlockchainFee()', () => {
-    it('should return block fee', () => {
-      return api.getBlockchainFee()
-        .then((res) => {
-          expect(res).to.be.a('number')
-        })
-        .catch((e) => {
-          console.log(e)
-          throw e
-        })
-    })
-  })
-
+  
 })

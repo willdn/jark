@@ -1,5 +1,3 @@
-import axios from 'axios'
-// import arkjs from 'arkjs'
 import { query, arkjs, setNetwork } from './api'
 
 /**
