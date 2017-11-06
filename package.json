@@ -1,6 +1,6 @@
 {
   "name": "jark",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "JavaScript library to query and make transaction on the Ark blockchain",
   "author": "William Dens <denswilliam1@gmail.com>",
   "license": "MIT",

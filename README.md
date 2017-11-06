@@ -5,3 +5,7 @@ JavaScript library to query and make transaction on the [Ark](https://ark.io) bl
 ## Install
 
 `npm i jark --save`
+
+## Usage
+
+`var jark = require('jark')`
