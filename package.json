@@ -1,9 +1,8 @@
 {
-  "private": true,
-  "name": "arkjs",
-  "version": "0.0.0",
-  "description": "",
-  "author": "willdn",
+  "name": "jark",
+  "version": "0.0.2",
+  "description": "JavaScript library to query and make transaction on the Ark blockchain",
+  "author": "William Dens <denswilliam1@gmail.com>",
   "license": "MIT",
   "keywords": [],
   "main": "index.js",
@@ -22,6 +21,8 @@
     "extends": "airbnb-base"
   },
   "dependencies": {
+    "arkjs": "^0.2.1",
+    "axios": "^0.17.0",
     "babel-runtime": "^6.11.6"
   },
   "devDependencies": {
@@ -29,6 +30,7 @@
     "babel-core": "^6.17.0",
     "babel-eslint": "^7.0.0",
     "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.16.3",
