@@ -9,8 +9,8 @@
 
 import { expect } from 'chai'
 import * as api from '../src/api'
+import * as account from '../src/account'
 import nock from 'nock'
-import response from './response'
 
 describe('API', () => {
 
@@ -40,6 +40,24 @@ describe('API', () => {
       return api.getBlockchainFee()
         .then((res) => {
           expect(res).to.be.a('number')
+        })
+        .catch((e) => {
+          console.log(e)
+          throw e
+        })
+    })
+  })
+
+})
+
+describe('account', () => {
+
+  describe('account.getBalance()', () => {
+    it('should return balance from address', () => {
+      return account.getBalance('AeZ4m9btFh4sfuN9KUsjtUm7XFaghikDhK')
+        .then((res) => {
+          expect(res).to.be.a('number')
+          expect(res).to.be.equal(0)
         })
         .catch((e) => {
           console.log(e)
