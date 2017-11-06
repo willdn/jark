@@ -24,7 +24,7 @@ export const getBalance = (address) => {
     address: address
   })
   .then((res) => {
-    return res.balance / 100000000
+    return res.balance / Math.pow(10, 8)
   })
 }
 

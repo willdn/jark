@@ -57,3 +57,47 @@ export const getNetHash = () => {
     return res.nethash
   })
 }
+
+/**
+ * Get blockchain's epoch
+ * @return {Promise<Response>} Epoch
+ */
+export const getEpoch = () => {
+  return query(`api/blocks/getEpoch`)
+  .then((res) => {
+    return res.epoch
+  })
+}
+
+/**
+ * Get block forging reward
+ * @return {Promise<Response>} Reward
+ */
+export const getReward = () => {
+  return query(`api/blocks/getReward`)
+  .then((res) => {
+    return res.reward
+  })
+}
+
+/**
+ * Get supply
+ * @return {Promise<Response>} Supply
+ */
+export const getSupply = () => {
+  return query(`api/blocks/getSupply`)
+  .then((res) => {
+    return res.supply
+  })
+}
+
+/**
+ * Get blockchain status
+ * @return {Promise<Response>} Status object
+ */
+export const getStatus = () => {
+  return query(`api/blocks/getStatus`)
+  .then((res) => {
+    return res
+  })
+}

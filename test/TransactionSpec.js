@@ -28,7 +28,7 @@ describe('Transaction', () => {
         throw e
       })
     })
-  })
+  }).timeout(5000)
 
   describe('api.createTransaction()', () => {
     it('should return transaction', () => {

@@ -71,4 +71,56 @@ describe('Blocks', () => {
         })
     }).timeout(5000)
   })
+
+  describe('api.getEpoch()', () => {
+    it('should return blockchain epoch', () => {
+      return api.getEpoch()
+        .then((res) => {
+          expect(res).to.be.equal('2017-03-21T13:00:00.000Z')
+        })
+        .catch((e) => {
+          console.log(e)
+          throw e
+        })
+    })
+  })
+
+  describe('api.getReward()', () => {
+    it('should return block forging reward', () => {
+      return api.getReward()
+        .then((res) => {
+          expect(res).to.be.an('number')
+        })
+        .catch((e) => {
+          console.log(e)
+          throw e
+        })
+    })
+  })
+
+  describe('api.getSupply()', () => {
+    it('should return blockchain supply', () => {
+      return api.getSupply()
+        .then((res) => {
+          expect(res).to.be.an('number')
+        })
+        .catch((e) => {
+          console.log(e)
+          throw e
+        })
+    })
+  })
+
+  describe('api.getStatus()', () => {
+    it('should return blockchain status', () => {
+      return api.getStatus()
+        .then((res) => {
+          expect(res.epoch).to.be.equal('2017-03-21T13:00:00.000Z')
+        })
+        .catch((e) => {
+          console.log(e)
+          throw e
+        })
+    })
+  })
 })
