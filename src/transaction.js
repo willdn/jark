@@ -1,4 +1,4 @@
-import { query, arkjs, setNetwork } from './api'
+import { query, post, arkjs } from './api'
 
 /**
  * Get transactions list
@@ -39,4 +39,16 @@ export const createTransaction = (data) => {
     data.passphrase,
     data.secondPassphrase
   )
+}
+
+/**
+ * Submit transaction to network
+ * @param {Object} - Transaction details
+ * @return {Promise<Response>} RPC response from sending transaction
+ */
+export const sendTransaction = (tx) => {
+  return post(`peer/transactions`, tx)
+  .then((res) => {
+    return res
+  })
 }
