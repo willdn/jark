@@ -63,7 +63,9 @@ jark.sendTransaction(tx)
 
 ## Build
 
-```
+```bash
+git clone https://github.com/willdn/jark.git
+cd jark
 npm install
 npm run build
 ```
