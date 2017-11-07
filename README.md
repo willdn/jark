@@ -63,7 +63,9 @@ jark.sendTransaction(tx)
 
 ## Build
 
-```
+```bash
+git clone https://github.com/willdn/jark.git
+cd jark
 npm install
 npm run build
 ```
@@ -75,9 +77,9 @@ npm run build
 
 ## Donations
 
-ARK : AePNZAAtWhLsGFLXtztGLAPnKm98VVC8tJ
-ETH : 0x51B9b64a00C05b320Adb3c384612c6Bb4dCEf175
-NEO/GAS : ALerku2yrULPckL5uSQsTb36bBdkrEZbaG
+- ARK : AePNZAAtWhLsGFLXtztGLAPnKm98VVC8tJ
+- ETH : 0x51B9b64a00C05b320Adb3c384612c6Bb4dCEf175
+- NEO/GAS : ALerku2yrULPckL5uSQsTb36bBdkrEZbaG
 
 ## License
 
