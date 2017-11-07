@@ -53,8 +53,8 @@ Get an array of the last transactions on the network
 
 ```js
 jark.getTransactionsList()
-  .then((balance) => {
-    console.log(balance); // Return address balance
+  .then((transactions) => {
+    console.log(transactions); // Return transactions array
   });
 ```
 **Response**
@@ -99,8 +99,8 @@ Get transaction details by transaction hash (id)
 
 ```js
 jark.getTransactionById('e40ce11cab82736da1cc91191716f3c1f446ca7b6a9f4f93b7120ef105ba06e8')
-  .then((balance) => {
-    console.log(balance); // Return transaction details
+  .then((transaction) => {
+    console.log(transaction); // Return transaction details
   });
 ```
 **Response**
