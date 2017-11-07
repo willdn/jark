@@ -1,8 +1,8 @@
 import { query, post, arkjs } from './api'
 
 /**
- * Get transactions list
- * @return {Promise<Response>} Transactions list
+ * Get an array of the last transactions on the network
+ * @return {Promise<Response>} Transactions array
  */
 export const getTransactionsList = () => {
   return query(`api/transactions`)
