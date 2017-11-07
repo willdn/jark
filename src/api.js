@@ -1,5 +1,6 @@
 import axios from 'axios'
 import ark from 'arkjs'
+import { getNetHash } from './block'
 
 export const networksType = {
   MAIN: {
@@ -29,6 +30,31 @@ export const query = (url, params) => {
   .catch((err) => {
     if (err) console.log(err)
   })
+}
+
+/**
+ * Post to API
+ * @return {Promise<Response>} Post result
+ */
+export const post = (url, data) => {
+  return getNetHash()
+    .then((nethash) => {
+      const dataReq = JSON.stringify({ transactions: [data] })
+      return axios.post(`${getEndpoint()}/${url}`, dataReq, {
+        headers: {
+          'Content-Type': 'application/json',
+          'version': '0.3.0',
+          'port': 1,
+          'nethash': nethash
+        }
+      })
+      .then((response) => {
+        return response.data
+      })
+      .catch((err) => {
+        if (err) return err
+      })
+    })
 }
 
 /**

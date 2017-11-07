@@ -32,8 +32,28 @@ jark.getBlocksHeight()
   });
 ```
 
+### Sending transaction
+```js
+const tx = jark.createTransaction({
+  to: 'DGd99C51SgwyEPqnxgxDNzbCB7YqHACYZa', // Recipient address
+  amount: 1, // Amount to send
+  message: null, // Optionnal message
+  passphrase: 'slogan plug release deny solar seed inject tag light winner box oyster', // Sender passphrase
+  secondPassphrase: null // Optionnal second passphrase
+})
+
+jark.sendTransaction(tx)
+  .then((res) => {
+    console.log(res) // Result of the transaction
+  })
+  .catch((e) => {
+    console.log(e)
+  })
+```
+
+
 ## Documentation
-- [Accounts](/docs/accounts.md)
+- [Account](/docs/account.md)
 - [Blocks](/docs/blocks.md)
 - [Delegate](/docs/delegate.md)
 - WIP

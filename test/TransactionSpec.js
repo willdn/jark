@@ -18,6 +18,7 @@ describe('Transaction', () => {
 
   describe('api.getTransactionById()', () => {
     it('should return transactions details', () => {
+      api.setNetwork('Dev')
       return api.getTransactionById('a4f17700b9ec74da9283c522ddac26da6974930769c8437396df50a778b6ffbf')
       .then((res) => {
         expect(res).to.be.an('object')
@@ -42,6 +43,31 @@ describe('Transaction', () => {
       })
       expect(tx.amount).to.be.equal(100000000)
       expect(tx.senderPublicKey).to.be.equal('02e9239013baf66c98360cd267ba1917674e218a894ac2f36d72e40cffc6e55e8a')
+    })
+  })
+
+  describe('api.sendTransaction()', () => {
+    it('should send transaction to the network', () => {
+      api.setNetwork('Dev')
+      const tx = api.createTransaction({
+        to: 'DGd99C51SgwyEPqnxgxDNzbCB7YqHACYZa',
+        amount: 1,
+        message: null,
+        passphrase: 'slogan plug release deny solar seed inject tag light winner box oyster',
+        secondPassphrase: null
+      })
+      expect(tx.senderPublicKey).to.be.equal('02e9239013baf66c98360cd267ba1917674e218a894ac2f36d72e40cffc6e55e8a')
+      // This works
+      /*
+      return api.sendTransaction(tx)
+        .then((res) => {
+          console.log(res)
+        })
+        .catch((e) => {
+          console.log(e)
+          throw e
+        })
+      */
     })
   })
 })
