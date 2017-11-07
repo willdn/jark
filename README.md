@@ -54,6 +54,7 @@ jark.sendTransaction(tx)
 
 ## Documentation
 - [Account](/docs/account.md)
+- [Transaction](/docs/transaction.md)
 - [Blocks](/docs/blocks.md)
 - [Delegate](/docs/delegate.md)
 - WIP
