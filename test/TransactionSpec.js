@@ -57,17 +57,15 @@ describe('Transaction', () => {
         secondPassphrase: null
       })
       expect(tx.senderPublicKey).to.be.equal('02e9239013baf66c98360cd267ba1917674e218a894ac2f36d72e40cffc6e55e8a')
-      // This works
-      /*
       return api.sendTransaction(tx)
         .then((res) => {
-          console.log(res)
+          expect(res.error).to.be.equal('Account does not have enough ARK: D7VSQMHvcf3j6o6LxEeAnazYYbVyeTJw4v balance: 0')
         })
         .catch((e) => {
           console.log(e)
           throw e
         })
-      */
+      
     })
   })
 })
