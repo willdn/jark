@@ -35,11 +35,12 @@ jark.getBlocksHeight()
 ## Documentation
 - [Accounts](/docs/accounts.md)
 - [Blocks](/docs/blocks.md)
+- [Delegate](/docs/delegate.md)
 - WIP
 
 ## Build
 
-``` bash
+```
 npm install
 npm run build
 ```

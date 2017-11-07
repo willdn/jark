@@ -1,5 +1,5 @@
-## Accounts
-Account related API calls.
+## Blocks
+Blocks related API calls.
 
 ### Get blocks height
 Get the block height of the ark blockchain

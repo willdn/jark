@@ -16,7 +16,7 @@ export const getDelegates = () => {
  * @param {string} - Delegate username
  * @return {Promise<Response>} Delegate infos
  */
-export const getByUsername = (username) => {
+export const getDelegateByUsername = (username) => {
   return query(`api/delegates/get`, {
     username: username
   })
@@ -30,7 +30,7 @@ export const getByUsername = (username) => {
  * @param {string} - Delegate public key
  * @return {Promise<Response>} Delegate infos
  */
-export const getByPublicKey = (publicKey) => {
+export const getDelegateByPublicKey = (publicKey) => {
   return query(`api/delegates/get`, {
     publicKey: publicKey
   })
