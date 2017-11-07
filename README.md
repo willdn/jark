@@ -35,6 +35,7 @@ jark.getBlocksHeight()
 ## Documentation
 - [Accounts](/docs/accounts.md)
 - [Blocks](/docs/blocks.md)
+- [Delegate](/docs/delegate.md)
 - WIP
 
 ## Build

@@ -17,9 +17,9 @@ describe('delegate', () => {
     })
   })
 
-  describe('api.getByUsername()', () => {
+  describe('api.getDelegateByUsername()', () => {
     it('should return delegate by username', () => {
-      return api.getByUsername('darkjarunik')
+      return api.getDelegateByUsername('darkjarunik')
         .then((res) => {
           expect(res).to.be.an('object')
           expect(res.username).to.be.equal('darkjarunik')
@@ -31,9 +31,9 @@ describe('delegate', () => {
     })
   })
 
-  describe('api.getByPublicKey()', () => {
+  describe('api.getDelegateByPublicKey()', () => {
     it('should return delegate by public key', () => {
-      return api.getByPublicKey('03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad')
+      return api.getDelegateByPublicKey('03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad')
         .then((res) => {
           expect(res).to.be.an('object')
           expect(res.username).to.be.equal('darkjarunik')
