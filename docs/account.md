@@ -43,12 +43,22 @@ jark.getAccount('Account address')
 }
 ```
 
-### Get transactions
+### Get transactions from address
 Get all the transactions from address
 
 ```js
 jark.getTransactionsFromAddress('Account address')
   .then((transactions) => {
     console.log(transactions); // Return transactions array
+  });
+```
+
+### Get delegates fee
+Get delegate register fee
+
+```js
+jark.getDelegatesFee()
+  .then((fee) => {
+    console.log(fee); // Return delegate fee
   });
 ```

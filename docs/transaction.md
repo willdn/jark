@@ -2,6 +2,9 @@
 Transaction related API calls.
 
 ### Create transaction
+[Get transactions from address](/account.md)
+
+### Create transaction
 Create a new transaction
 
 ```js
