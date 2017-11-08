@@ -1,6 +1,6 @@
 {
   "name": "jark",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "JavaScript ARK API wrapper to interact with the ARK blockchain",
   "author": "William Dens <denswilliam1@gmail.com>",
   "license": "MIT",
