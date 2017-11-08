@@ -59,7 +59,7 @@ jark.sendTransaction(tx)
 - [Blocks](/docs/blocks.md)
 - [Delegate](/docs/delegate.md)
 - [Peer](/docs/peer.md)
-- WIP
+- [API](/docs/api.md)
 
 ## Build
 
