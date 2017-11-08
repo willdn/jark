@@ -40,3 +40,28 @@ jark.getNextForgers()
     console.log(nextForgers); // Return next forgers array
   });
 ```
+
+### Get delegate voters
+Get delegate voters array from delegate public key
+
+```js
+jark.getDelegateVoters('Delegate public key')
+  .then((voters) => {
+    console.log(voters); // Return array voters
+  });
+```
+**Response**
+```
+{
+  username: null,
+  address: "D5CUKeSXRB29eWTPTdH8znGCfPrtEftdHt",
+  publicKey: "02c5e5347a5b62dda6d1d863751209f4b7af93847bf2fa234202ae2e9f378f7eee",
+  balance: "600000000"
+},
+{
+  username: "darkjarunik002",
+  address: "D6ZiWdJBoyP5j4nN8S3B7YicvUHTtC2mAE",
+  publicKey: "027e01c86f4de584eebb0ca291bfb58e9dc46476988d5e57ef767f86747e25a6f1",
+  balance: "1890653018"
+}
+```
