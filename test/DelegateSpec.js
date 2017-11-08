@@ -17,6 +17,22 @@ describe('delegate', () => {
     })
   })
 
+  describe('api.getDelegates() params', () => {
+    it('should return delegates list according to params', () => {
+      return api.getDelegates({
+        'limit': 5
+      })
+        .then((res) => {
+          expect(res).to.be.an('array')
+          expect(res.length).to.be.equal(5)
+        })
+        .catch((e) => {
+          console.log(e)
+          throw e
+        })
+    })
+  })
+
   describe('api.getDelegateByUsername()', () => {
     it('should return delegate by username', () => {
       return api.getDelegateByUsername('darkjarunik')
