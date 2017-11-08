@@ -53,4 +53,21 @@ describe('API', () => {
         })
     })
   })
+
+  describe('api.getKeys()', () => {
+    it('should return keys for main net', () => {
+      api.setNetwork('Main')
+      const keys = api.getKeys()
+      expect(keys.publicKey.length).to.be.equal(66)
+      expect(keys.passphrase).to.be.a('string')
+      expect(keys.address.charAt(0)).to.be.equal('A')
+    })
+    it('should return keys for dev net', () => {
+      api.setNetwork('Dev')
+      const keys = api.getKeys()
+      expect(keys.publicKey.length).to.be.equal(66)
+      expect(keys.passphrase).to.be.a('string')
+      expect(keys.address.charAt(0)).to.be.equal('D')
+    })
+  })
 })

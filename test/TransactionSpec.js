@@ -99,4 +99,17 @@ describe('Transaction', () => {
       
     })
   })
+
+  describe('api.getUnconfirmedTransactions()', () => {
+    it('should get unconfirmed transactions from network', () => {
+      return api.getUnconfirmedTransactions()
+        .then((res) => {
+          expect(res).to.be.an('array')
+        })
+        .catch((e) => {
+          console.log(e)
+          throw e
+        })
+    })
+  })
 })

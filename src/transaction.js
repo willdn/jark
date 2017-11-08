@@ -68,3 +68,14 @@ export const sendTransaction = (tx) => {
     return res
   })
 }
+
+/**
+ * Get an array of unconfirmed transactions on the network
+ * @return {Promise<Response>} Unconfirmed txs array
+ */
+export const getUnconfirmedTransactions = () => {
+  return query(`api/transactions/unconfirmed`)
+  .then((res) => {
+    return res.transactions
+  })
+}

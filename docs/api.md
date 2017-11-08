@@ -1,6 +1,23 @@
 ## API
 API related API calls.
 
+### Get keys
+Generate a public / private key pair from random mnemonic
+
+```js
+const keys = jark.getKeys();
+console.log(keys); // Return keys pair
+```
+**Response**
+```
+{ 
+  publicKey: '03ae23d16816cc153f3a5d5be565b69d7c911f39767059a1266218569d3217df9b',
+  privateKey: '',
+  passphrase: 'service cup whisper bundle reform tourist fruit snack injury salmon teach develop',
+  address: 'AZWcpL5stobf777P8oENaJ2RMabXvZFS5V'
+}
+```
+
 ### Get endpoint
 Get the API endpoint
 
