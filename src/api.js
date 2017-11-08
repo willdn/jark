@@ -28,7 +28,7 @@ export const query = (url, params) => {
     return res.data
   })
   .catch((err) => {
-    if (err) return err
+    return err
   })
 }
 
@@ -52,7 +52,7 @@ export const post = (url, data) => {
         return response.data
       })
       .catch((err) => {
-        if (err) return err
+        return err
       })
     })
 }
@@ -62,8 +62,10 @@ export const post = (url, data) => {
  * @return {string} Endpoint
  */
 export const getEndpoint = () => {
-  if (getNetwork().label === networksType.MAIN.label) return 'https://node1.arknet.cloud'
-  if (getNetwork().label === networksType.DEV.label) return 'https://dev.arkcoin.net'
+  switch (getNetwork().label) {
+    case networksType.MAIN.label: return 'https://node1.arknet.cloud'
+    case networksType.DEV.label: return 'https://dev.arkcoin.net'
+  }
 }
 
 /**
@@ -80,12 +82,16 @@ export const getNetwork = () => {
  * @return {Promise<Response>} Query resylt
  */
 export const setNetwork = (netowrk) => {
-  if (netowrk === networksType.DEV.label) {
-    currentNetwork = networksType.DEV
-    arkjs.crypto.setNetworkVersion(networksType.DEV.version)
-    return
-  } else if (netowrk === networksType.MAIN.label) {
-    currentNetwork = networksType.MAIN
-    arkjs.crypto.setNetworkVersion(networksType.MAIN.version)
+  switch(netowrk) {
+    case networksType.DEV.label: {
+      currentNetwork = networksType.DEV
+      arkjs.crypto.setNetworkVersion(networksType.DEV.version)
+      return true
+    }
+    case networksType.MAIN.label : {
+      currentNetwork = networksType.MAIN
+      arkjs.crypto.setNetworkVersion(networksType.MAIN.version)
+      return true
+    }
   }
 }
