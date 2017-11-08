@@ -42,17 +42,6 @@ jark.getAccount('Account address')
   "secondPublicKey": "Second signature public key. (Hex String)"
 }
 ```
-
-### Get transactions from address
-Get all the transactions from address
-
-```js
-jark.getTransactionsFromAddress('Account address')
-  .then((transactions) => {
-    console.log(transactions); // Return transactions array
-  });
-```
-
 ### Get delegates fee
 Get delegate register fee
 

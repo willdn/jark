@@ -43,21 +43,6 @@ export const getAccount = (address) => {
 }
 
 /**
- * Get transaction list
- * @param {string} - Address to get transactions from
- * @return {Promise<Response>} Transactions
- */
-export const getTransactionsFromAddress = (address) => {
-  return query(`api/transactions`, {
-    recipientId: address,
-    senderId: address
-  })
-  .then((res) => {
-    return res.transactions
-  })
-}
-
-/**
  * Get delegates list from address
  * @param {string} - Address to get vote delegates
  * @return {Promise<Response>} Array of delegates

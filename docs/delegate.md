@@ -4,13 +4,55 @@ Delegate related API calls.
 ### Get delegates
 Get the array of delegates
 
+#### Options
+
+- limit: Limit to show. Integer. Maximum is 100. (Integer)
+- offset: Offset (Integer)
+- orderBy: Order by field (String)
+
 ```js
 jark.getDelegates()
   .then((delegates) => {
     console.log(delegates); // Return delegates array
   });
+
+// With options
+jark.getDelegates({
+    'limit': 2,
+    'orderBy': 'productivity:desc'
+  })
+  .then((delegates) => {
+    console.log(delegates); // Return delegates array according to params
+  });
 ```
 
+**Response**
+```
+[
+  {
+    username: "d_chris",
+    address: "DQUjMT6fhJWbwhaYL5pPdX9v5qPiRcAzRb",
+    publicKey: "02bcfa0951a92e7876db1fb71996a853b57f996972ed059a950d910f7d541706c9",
+    vote: "11511518885161274",
+    producedblocks: 30073,
+    missedblocks: 7144,
+    rate: 1,
+    approval: 89.59,
+    productivity: 80.8
+  },
+  {
+    username: "d_arky",
+    address: "DKf1RUGCM3G3DxdE7V7DW7SFJ4Afmvb4YU",
+    publicKey: "02dcb94d73fb54e775f734762d26975d57f18980314f3b67bc52beb393893bc706",
+    vote: "623563509214733",
+    producedblocks: 20696,
+    missedblocks: 15052,
+    rate: 2,
+    approval: 4.85,
+    productivity: 57.89
+  }
+]
+```
 ### Get delegate by username
 Get the delegate details from his username
 
