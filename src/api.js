@@ -28,7 +28,7 @@ export const query = (url, params) => {
     return res.data
   })
   .catch((err) => {
-    if (err) console.log(err)
+    if (err) return err
   })
 }
 

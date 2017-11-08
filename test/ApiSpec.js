@@ -23,4 +23,24 @@ describe('API', () => {
       expect(endpoint).to.be.equal('https://dev.arkcoin.net')
     })
   })
+
+  describe('api.query()', () => {
+    it('should return error when wrong url query', () => {
+      api.query('https://dev.arkcoin.net/xxx')
+        .then((res) => {
+          expect(res).be.an.instanceOf(Error)
+          expect(res.message).to.be.equal('Request failed with status code 404')
+        })
+    })
+  })
+
+  describe('api.post()', () => {
+    it('should return error when wrong url post', () => {
+      api.post('https://dev.arkcoin.net/xxx')
+        .then((res) => {
+          expect(res).be.an.instanceOf(Error)
+          expect(res.message).to.be.equal('Request failed with status code 404')
+        })
+    })
+  })
 })
