@@ -34,6 +34,16 @@ describe('API', () => {
     })
   })
 
+  describe('api.queryBuilder()', () => {
+    it('should return query url when object given', () => {
+      const query = api.queryBuilder({
+        'orderBy': 'desc',
+        'limit': 5
+      })
+      expect(query).to.be.equal('orderBy=desc&limit=5')
+    })
+  })
+
   describe('api.post()', () => {
     it('should return error when wrong url post', () => {
       api.post('https://dev.arkcoin.net/xxx')

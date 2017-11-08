@@ -1,13 +1,31 @@
 import { expect } from 'chai'
 import * as api from '../src'
 
+const address = 'DSCgKwRrKM2QNo4nrbSTwbW6fN5i7ZXjRu'
+
 describe('Transaction', () => {
 
-  describe('api.getTransactionsList()', () => {
-    it('should return transactions list', () => {
-      return api.getTransactionsList()
+  describe('api.getTransactions()', () => {
+    it('should return transactions array', () => {
+      return api.getTransactions()
       .then((res) => {
         expect(res).to.be.an('array')
+      })
+      .catch((e) => {
+        console.log(e)
+        throw e
+      })
+    })
+  })
+
+  describe('api.getTransactions() with params', () => {
+    it('should return transactions according to params', () => {
+      return api.getTransactions({
+        'limit': 10
+      })
+      .then((res) => {
+        expect(res).to.be.an('array')
+        expect(res.length).to.be.equal(10)
       })
       .catch((e) => {
         console.log(e)
@@ -43,6 +61,19 @@ describe('Transaction', () => {
       })
       expect(tx.amount).to.be.equal(100000000)
       expect(tx.senderPublicKey).to.be.equal('02e9239013baf66c98360cd267ba1917674e218a894ac2f36d72e40cffc6e55e8a')
+    })
+  })
+
+  describe('api.getTransactionsFromAddress()', () => {
+    it('should return transactions from address', () => {
+      return api.getTransactionsFromAddress(address)
+        .then((res) => {
+          expect(res.length).to.be.equal(3)
+        })
+        .catch((e) => {
+          console.log(e)
+          throw e
+        })
     })
   })
 

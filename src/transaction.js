@@ -1,11 +1,27 @@
-import { query, post, arkjs } from './api'
+import { query, post, arkjs, queryBuilder } from './api'
 
 /**
  * Get an array of the last transactions on the network
  * @return {Promise<Response>} Transactions array
  */
-export const getTransactionsList = () => {
-  return query(`api/transactions`)
+export const getTransactions = (options) => {
+  const params = queryBuilder(options)
+  return query(`api/transactions?${params}`)
+  .then((res) => {
+    return res.transactions
+  })
+}
+
+/**
+ * Get transaction list
+ * @param {string} - Address to get transactions from
+ * @return {Promise<Response>} Transactions
+ */
+export const getTransactionsFromAddress = (address) => {
+  return query(`api/transactions`, {
+    recipientId: address,
+    senderId: address
+  })
   .then((res) => {
     return res.transactions
   })

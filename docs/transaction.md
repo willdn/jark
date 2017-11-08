@@ -1,8 +1,15 @@
 ## Transaction
 Transaction related API calls.
 
-### Create transaction
-[Get transactions from address](/account.md)
+### Get transactions from address
+Get all the transactions from address
+
+```js
+jark.getTransactionsFromAddress('Account address')
+  .then((transactions) => {
+    console.log(transactions); // Return transactions array
+  });
+```
 
 ### Create transaction
 Create a new transaction
@@ -51,13 +58,31 @@ jark.sendTransaction(tx)
   })
 ```
 
-### Get transactions list
+### Get transactions
 Get an array of the last transactions on the network
 
+#### Options
+
+- blockId: Block id of transaction. (String)
+- senderId: Sender address of transaction. (String)
+- recipientId: Recipient of transaction. (String)
+- limit: Limit of transaction to send in response. Default is 20. (Number)
+- offset: Offset to load. (Integer number)
+- orderBy: Name of column to order. After column name must go "desc" or "asc" to choose order type. Example: orderBy=timestamp:desc (String)
+
 ```js
-jark.getTransactionsList()
+jark.getTransactions()
   .then((transactions) => {
     console.log(transactions); // Return transactions array
+  });
+
+// With options
+jark.getTransactions({
+    'limit': 5,
+    'orderBy': 'confirmations:asc'
+  })
+  .then((transactions) => {
+    console.log(transactions); // Return transactions array accroding to params
   });
 ```
 **Response**

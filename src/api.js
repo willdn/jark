@@ -79,7 +79,7 @@ export const getNetwork = () => {
 /**
  * Set network
  * @param {string} - Network name to use
- * @return {Promise<Response>} Query resylt
+ * @return {Promise<Response>} Query result
  */
 export const setNetwork = (netowrk) => {
   switch(netowrk) {
@@ -94,4 +94,16 @@ export const setNetwork = (netowrk) => {
       return true
     }
   }
+}
+
+/**
+ * Build url query from object
+ * @param {Object} - Query params
+ * @return {Promise<Response>} URL param query
+ */
+export const queryBuilder = (data) => {
+  if (data == null || Object.keys(data).length === 0) return ''
+  return Object.keys(data).map(function(key) {
+    return [key, data[key]].map(encodeURIComponent).join("=");
+  }).join("&")
 }

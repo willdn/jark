@@ -33,19 +33,6 @@ describe('account', () => {
     })
   })
 
-  describe('api.getTransactionsFromAddress()', () => {
-    it('should return transactions from address', () => {
-      return api.getTransactionsFromAddress(address)
-        .then((res) => {
-          expect(res.length).to.be.equal(3)
-        })
-        .catch((e) => {
-          console.log(e)
-          throw e
-        })
-    })
-  })
-
   describe('api.getDelegatesFromAddress()', () => {
     it('should return delegates from address', () => {
       return api.getDelegatesFromAddress(address)

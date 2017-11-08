@@ -1,11 +1,12 @@
-import { query } from './api'
+import { query, queryBuilder } from './api'
 
 /**
  * Return delegates list
  * @return {Promise<Response>} Array of delegates
  */
-export const getDelegates = () => {
-  return query(`api/delegates`)
+export const getDelegates = (options) => {
+  const params = queryBuilder(options)
+  return query(`api/delegates?${params}`)
   .then((res) => {
     return res.delegates
   })
