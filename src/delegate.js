@@ -51,7 +51,7 @@ export const getNextForgers = () => {
 }
 
 /**
- * Return voters list from delegeates
+ * Return voters list from delegate public key
  * @param {string} - Delegate public key
  * @return {Promise<Response>} Voters list
  */
