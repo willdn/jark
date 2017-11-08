@@ -2,7 +2,7 @@
 Transaction related API calls.
 
 ### Create transaction
-[Get transactions from address](/account.md)
+[Get transactions from address](/docs/account.md)
 
 ### Create transaction
 Create a new transaction
