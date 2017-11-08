@@ -1,5 +1,6 @@
 import axios from 'axios'
 import ark from 'arkjs'
+import Mnemonic from 'bitcore-mnemonic'
 import { getNetHash } from './block'
 
 export const networksType = {
@@ -106,4 +107,20 @@ export const queryBuilder = (data) => {
   return Object.keys(data).map(function(key) {
     return [key, data[key]].map(encodeURIComponent).join("=");
   }).join("&")
+}
+
+/**
+ * Generate a public / private key pair from random mnemonic
+ * @return {Object} Private/public key pair
+ */
+export const getKeys = () => {
+  let code = new Mnemonic()
+  const keys = arkjs.crypto.getKeys(code.toString())
+  const address = arkjs.crypto.getAddress(keys.publicKey)
+  return {
+    publicKey: keys.publicKey,
+    privateKey: keys.privateKey,
+    passphrase: code.toString(),
+    address: address
+  }
 }
