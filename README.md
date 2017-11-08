@@ -52,6 +52,18 @@ jark.sendTransaction(tx)
   })
 ```
 
+### Endpoint parameters
+```js
+const params = {
+  'limit': 2,
+  'orderBy': 'productivity:desc'
+}
+jark.getDelegates(params)
+  .then((delegates) => {
+    console.log(delegates); // Return delegates array according to params
+  });
+```
+
 
 ## Documentation
 - [Account](/docs/account.md)
