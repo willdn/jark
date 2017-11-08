@@ -43,6 +43,24 @@ describe('Blocks', () => {
     }).timeout(5000)
   })
 
+  describe('api.getBlocks()', () => {
+    it('should return an array of blocks according to params', () => {
+      return api.getBlocks({
+        'limit': 5,
+        'orderBy': 'height:asc'
+      })
+        .then((res) => {
+          expect(res).to.be.an('array')
+          expect(res.length).to.be.equal(5)
+          expect(res[1].height).to.be.equal(res[0].height + 1)
+        })
+        .catch((e) => {
+          console.log(e)
+          throw e
+        })
+    }).timeout(5000)
+  })
+
   describe('api.getBlock()', () => {
     it('should return block details', () => {
       api.setNetwork('Dev')

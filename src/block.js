@@ -1,11 +1,12 @@
-import { query } from './api'
+import { query, queryBuilder } from './api'
 
 /**
  * Get last blocks
  * @return {Promise<Response>} Last blocks array
  */
-export const getBlocks = () => {
-  return query(`api/blocks`)
+export const getBlocks = (options) => {
+  const params = queryBuilder(options)
+  return query(`api/blocks?${params}`)
   .then((res) => {
     return res.blocks
   })
