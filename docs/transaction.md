@@ -149,3 +149,32 @@ jark.getTransactionById('e40ce11cab82736da1cc91191716f3c1f446ca7b6a9f4f93b7120ef
   confirmations: 1731380
 }
 ```
+
+### Get unconfirmed transactions
+Get an array of unconfirmed transactions on the network
+
+```js
+jark.getUnconfirmedTransactions('')
+  .then((transactions) => {
+    console.log(transactions); // Return transactions array
+  });
+```
+**Response**
+```
+[
+  {
+    id: "e40ce11cab82736da1cc91191fe6f3c1f446ca7b6a9f4f93b7120ef105ba06e8",
+    blockid: "13149578060728881902",
+    type: 0,
+    timestamp: 0,
+    amount: 12500000000000000,
+    fee: 0,
+    senderId: "DmFeXjJmYt1mWZ2auywA1EQSqfCv5kYYfP",
+    recipientId: "DGihocTkwDyjkHUvmg6aG8jThYTic47GzU9",
+    senderPublicKey: "03cb7bca143376721d0e9e3f3ccb0dc2e7e8470c06e630c3cef73f03e309b558ad",
+    signature: "304402204s5decdf3039e69514c7d75861b22fcfds96b61c07a1fcf793dc4f5c76fa0532b0220579c4c0c9d13720f9db5d9df29ed8ceab0adc266c6c160d612d4894dc5867eb1",
+    asset: { },
+    confirmations: 0
+  }
+]
+```
