@@ -1,5 +1,4 @@
 ## API
-API related API calls.
 
 ### Get keys
 Generate a public / private key pair from random mnemonic

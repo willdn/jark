@@ -154,7 +154,7 @@ jark.getTransactionById('e40ce11cab82736da1cc91191716f3c1f446ca7b6a9f4f93b7120ef
 Get an array of unconfirmed transactions on the network
 
 ```js
-jark.getUnconfirmedTransactions('')
+jark.getUnconfirmedTransactions()
   .then((transactions) => {
     console.log(transactions); // Return transactions array
   });
