@@ -79,6 +79,13 @@ describe('API', () => {
       expect(keys.passphrase).to.be.a('string')
       expect(keys.address.charAt(0)).to.be.equal('D')
     })
+    it('should return keys for given passphrase', () => {
+      api.setNetwork('Dev')
+      const keys = api.getKeys('slogan plug release deny solar seed inject tag light winner box oyster')
+      expect(keys.address).to.be.equal('D7VSQMHvcf3j6o6LxEeAnazYYbVyeTJw4v')
+      expect(keys.publicKey).to.be.equal('02e9239013baf66c98360cd267ba1917674e218a894ac2f36d72e40cffc6e55e8a')
+      expect(keys.privateKey).to.be.equal('73079e6c1ebce0c37cf824ee4132a7c2d6a3340cd80eea1aa23b566911b42005')
+    })
   })
 
   describe('api.getSecondSignatureFee()', () => {

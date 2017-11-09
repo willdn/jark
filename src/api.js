@@ -111,10 +111,12 @@ export const queryBuilder = (data) => {
 
 /**
  * Generate a public / private key pair from random mnemonic
+ * @param {string} [passphrase] - Passphrase to get keys from
  * @return {Object} Private/public key pair
  */
-export const getKeys = () => {
-  let code = new Mnemonic()
+export const getKeys = (passphrase = null) => {
+  // Get keys from passphrase if present or generate a random one
+  let code = (passphrase == null) ? new Mnemonic() : passphrase
   const keys = arkjs.crypto.getKeys(code.toString())
   const address = arkjs.crypto.getAddress(keys.publicKey)
   return {

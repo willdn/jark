@@ -67,6 +67,16 @@ export const createVoteTransaction = (data) => {
 }
 
 /**
+ * Create a second signature transaction
+ * @param {string} - Passphrase from account
+ * @param {string} - secondPassphrase to set
+ * @return {Object} Transaction
+ */
+export const createSecondPassTransaction = (passphrase, secondPassphrase) => {
+  return arkjs.signature.createSignature(passphrase, secondPassphrase)
+}
+
+/**
  * Submit transaction to network
  * @param {Object} - Transaction details
  * @return {Promise<Response>} RPC response from sending transaction
