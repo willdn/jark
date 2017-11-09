@@ -36,10 +36,9 @@ jark.getBlocksHeight()
 ### Generate keys pair
 ```js
 const keys = jark.getKeys();
-console.log(keys); // Return keys pair
-```
-**Response**
-```
+console.log(keys);
+
+// keys
 { 
   publicKey: '030bf73cb609f90d47a62eda1c411e5c7ee463db47fba5e5030b0f2932353d5618',
   privateKey: 'cb3e4b3d24e1c67c075de107c6a527cb7d37a1ec7d7f9bc85091c271a6020962',
