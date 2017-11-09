@@ -132,4 +132,15 @@ describe('Transaction', () => {
         })
     })
   })
+
+  describe('api.createSecondPassTransaction()', () => {
+    it('should create a second passphrase transaction', () => {
+      api.setNetwork('Dev')
+      const tx = api.createSecondPassTransaction('slogan plug release deny solar seed inject tag light winner box oyster',
+      'fly regular umbrella bridge time wrong enlist broccoli rapid during genre ball')
+      expect(tx.type).to.be.equal(1)
+      expect(tx.senderPublicKey).to.be.equal('02e9239013baf66c98360cd267ba1917674e218a894ac2f36d72e40cffc6e55e8a')
+      expect(tx.asset.signature.publicKey).to.be.equal('03fdb8bca0b63795752066a94e46fb071e2964bf1edd6a674dab874468a0a4d6b3')
+    })
+  })
 })

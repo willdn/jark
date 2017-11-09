@@ -38,7 +38,7 @@ const tx = jark.createTransaction({
 ```
 
 ### Create vote transaction
-Create a new vote/unvote transaction
+Create a vote/unvote transaction
 
 ```js
 // Vote for darkjarunik
@@ -67,6 +67,31 @@ const tx = api.createVoteTransaction({
   asset: { votes: [ '+03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad' ] },
   signature: '304402201568fa523a7f069fe4ff61643fb76496d7774984779899ac6b0edccfc617abb20220566b3e0fa8500ea63cea050b5862a47e2021a18e4efade0ce423cf7176b0101a',
   id: '45554984b1f29c796b0b2c494d5f3e6b88c8aff4597c2f59cb131d2aeed9156c'
+}
+```
+
+### Create signature transaction
+Create a second passphrase transaction
+
+```js
+// Vote for darkjarunik
+const tx = api.createSecondPassTransaction(
+  'slogan plug release deny solar seed inject tag light winner box oyster', // Account passphrase
+  'fly regular umbrella bridge time wrong enlist broccoli rapid during genre ball' // Second passhrase to set
+)
+```
+**Response**
+```
+{ 
+  type: 1,
+  amount: 0,
+  fee: 500000000,
+  recipientId: null,
+  senderPublicKey: '02e9239013baf66c98360cd267ba1917674e218a894ac2f36d72e40cffc6e55e8a',
+  timestamp: 20159137,
+  asset: { signature: { publicKey: '03fdb8bca0b63795752066a94e46fb071e2964bf1edd6a674dab874468a0a4d6b3' } },
+  signature: '3044022048f5de5d05eec0510a5e8250366e816821d6c8865fadf63f82d33bba582a3cd5022014dc65f9857a9d0cd52ae99e9edbf20fa36a367d58071c7cfd2c324d6bacd0ce',
+  id: '2c9f38591d92bdd0e3fb9e17516951a597f4ba101806cffb645f518a8215056c'
 }
 ```
 
