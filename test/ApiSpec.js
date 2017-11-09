@@ -11,6 +11,14 @@ describe('API', () => {
       api.setNetwork('Dev')
       expect(api.getNetwork().label).to.be.equal('Dev')
     })
+    it('network should remain the same no arguments', () => {
+      api.setNetwork()
+      expect(api.getNetwork().label).to.be.equal('Dev')
+    })
+    it('network should remain the same wrong arguments', () => {
+      api.setNetwork('Network?')
+      expect(api.getNetwork().label).to.be.equal('Dev')
+    })
   })
 
   describe('api.getEndpoint()', () => {
