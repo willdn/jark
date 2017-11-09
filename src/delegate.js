@@ -64,3 +64,17 @@ export const getDelegateVoters = (publicKey) => {
     return res.accounts
   })
 }
+
+/**
+ * Return delegates matching query
+ * @param {string} q - Search query
+ * @param {Object} options - Search params
+ * @return {Promise<Response>} Array of delegates
+ */
+export const searchDelegate = (q, options) => {
+  const params = queryBuilder(options)
+  return query(`api/delegates/search?q=${q}&${params}`)
+  .then((res) => {
+    return res.delegates
+  })
+}

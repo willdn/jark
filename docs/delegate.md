@@ -1,6 +1,13 @@
 ## Delegate
 Delegate related API calls.
 
+- [Get delegates](#get-delegates)
+- [Get delegate by username](#get-delegate-by-username)
+- [Get delegate by public key](#get-delegate-by-public-key)
+- [Get next forgers](#get-next-forgers)
+- [Get delegate voters](#get-delegate-voters)
+- [Search delegates](#search-delegates)
+
 ### Get delegates
 Get the array of delegates
 
@@ -106,6 +113,50 @@ jark.getDelegateVoters('Delegate public key')
     address: "D6ZiWdJBoyP5j4nN8S3B7YicvUHTtC2mAE",
     publicKey: "027e01c86f4de584eebb0ca291bfb58e9dc46476988d5e57ef767f86747e25a6f1",
     balance: "1890653018"
+  }
+]
+```
+
+### Search delegates
+Get delegates matching search query
+
+Valid orderBy value are: `username:asc`, `username:desc`, `address:asc`, `address:desc`, `publicKey:asc`, 
+`publicKey:desc`, `vote:asc`, `vote:desc`, `missedblocks:asc`, `missedblocks:desc`, `producedblocks:asc`, `producedblocks:desc`
+
+```js
+jark.searchDelegate('Dark', {
+    'orderBy': 'missedblocks:asc'
+  })
+  .then((delegates) => {
+    console.log(delegates); // Return delegates matching query
+  });
+```
+**Response**
+```
+[ 
+  { 
+    username: 'calidark',
+    address: 'DJmr887qE9pZ374tAEnzcnR3hZqGJ5DYwM',
+    publicKey: '03ea30ad4c2c5906061b09fac51a6f4b7765e59091ddd101af28d1ec901d42b41f',
+    vote: '17681450000000',
+    producedblocks: 7828,
+    missedblocks: 4
+  },
+  { 
+    username: 'dark_jmc',
+    address: 'D5PXQVeJmchVrZFHL7cALZK8mWWzjCaVfz',
+    publicKey: '02a9a0ac34a94f9d27fd9b4b56eb3c565a9a3f61e660f269775fb456f7f3301586',
+    vote: '4505269999900',
+    producedblocks: 30898,
+    missedblocks: 59 
+  }
+  { 
+    username: 'darkjarunik',
+    address: 'DBi2HdDY8TqMCD2aFLVomEF92gzeDmEHmR',
+    publicKey: '03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad',
+    vote: '45491753236470',
+    producedblocks: 32797,
+    missedblocks: 1192
   }
 ]
 ```
