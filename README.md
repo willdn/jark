@@ -45,6 +45,17 @@ console.log(keys);
   passphrase: 'quick tribe subway tackle wolf fitness leopard syrup kitten reject mansion vast',
   address: 'ASJQHQZyMCCmsXw3Ad2ujiq7Sm8th6eJiy'
 }
+
+// From passphrase
+const keys = jark.getKeys('slogan plug release deny solar seed inject tag light winner box oyster');
+console.log(keys);
+// keys
+{ 
+  publicKey: '02e9239013baf66c98360cd267ba1917674e218a894ac2f36d72e40cffc6e55e8a',
+  privateKey: '73079e6c1ebce0c37cf824ee4132a7c2d6a3340cd80eea1aa23b566911b42005',
+  passphrase: 'slogan plug release deny solar seed inject tag light winner box oyster',
+  address: 'D7VSQMHvcf3j6o6LxEeAnazYYbVyeTJw4v'
+}
 ```
 
 ### Transactions
