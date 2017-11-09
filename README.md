@@ -70,14 +70,14 @@ Send vote transaction
 ```js
 // Vote for darkjarunik
 const tx = api.createVoteTransaction({
-  secret: 'slogan plug release deny solar seed inject tag light winner box oyster', // Voters passphrase
+  passphrase: 'slogan plug release deny solar seed inject tag light winner box oyster', // Voters passphrase
   delegates: ['+03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad'], // Public key of the delegate to vote
   secondPassphrase: null // Second passphrase (optionnal)
 })
 
 // Unvote for darkjarunik
 const tx = api.createVoteTransaction({
-  secret: 'slogan plug release deny solar seed inject tag light winner box oyster', // Voters passphrase
+  passphrase: 'slogan plug release deny solar seed inject tag light winner box oyster', // Voters passphrase
   delegates: ['-03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad'], // Public key of the delegate to unvote
   secondPassphrase: null
 })
