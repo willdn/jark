@@ -58,6 +58,15 @@ export const createTransaction = (data) => {
 }
 
 /**
+ * Create a vote transaction
+ * @param {Object} - Transaction parameters
+ * @return {Object} Transaction
+ */
+export const createVoteTransaction = (data) => {
+  return arkjs.vote.createVote(data.passphrase, data.delegates, data.secondPassphrase)
+}
+
+/**
  * Submit transaction to network
  * @param {Object} - Transaction details
  * @return {Promise<Response>} RPC response from sending transaction

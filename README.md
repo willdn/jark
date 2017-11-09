@@ -47,7 +47,8 @@ console.log(keys);
 }
 ```
 
-### Sending transaction
+### Transactions
+Send transaction
 ```js
 const tx = jark.createTransaction({
   to: 'DGd99C51SgwyEPqnxgxDNzbCB7YqHACYZa', // Recipient address
@@ -60,6 +61,30 @@ const tx = jark.createTransaction({
 jark.sendTransaction(tx)
   .then((res) => {
     console.log(res) // Result of the transaction
+  })
+  .catch((e) => {
+    console.log(e)
+  })
+```
+Send vote transaction
+```js
+// Vote for darkjarunik
+const tx = api.createVoteTransaction({
+  secret: 'slogan plug release deny solar seed inject tag light winner box oyster', // Voters passphrase
+  delegates: ['+03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad'], // Public key of the delegate to vote
+  secondPassphrase: null // Second passphrase (optionnal)
+})
+
+// Unvote for darkjarunik
+const tx = api.createVoteTransaction({
+  secret: 'slogan plug release deny solar seed inject tag light winner box oyster', // Voters passphrase
+  delegates: ['-03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad'], // Public key of the delegate to unvote
+  secondPassphrase: null
+})
+
+jark.sendTransaction(tx)
+  .then((res) => {
+    console.log(res) // Result of the vote transaction
   })
   .catch((e) => {
     console.log(e)
