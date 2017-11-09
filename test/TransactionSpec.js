@@ -112,4 +112,24 @@ describe('Transaction', () => {
         })
     })
   })
+
+  describe('api.createVoteTransaction()', () => {
+    it('should create a vote transaction', () => {
+      api.setNetwork('Dev')
+      const tx = api.createVoteTransaction({
+        passphrase: 'slogan plug release deny solar seed inject tag light winner box oyster',
+        delegates: ['+03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad'],
+        secondPassphrase: null
+      })
+      expect(tx.senderPublicKey).to.be.equal('02e9239013baf66c98360cd267ba1917674e218a894ac2f36d72e40cffc6e55e8a')
+      return api.sendTransaction(tx)
+        .then((res) => {
+          expect(res.error).to.be.equal('Account does not have enough ARK: D7VSQMHvcf3j6o6LxEeAnazYYbVyeTJw4v balance: 0')
+        })
+        .catch((e) => {
+          console.log(e)
+          throw e
+        })
+    })
+  })
 })

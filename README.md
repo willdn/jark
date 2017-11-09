@@ -36,10 +36,9 @@ jark.getBlocksHeight()
 ### Generate keys pair
 ```js
 const keys = jark.getKeys();
-console.log(keys); // Return keys pair
-```
-**Response**
-```
+console.log(keys);
+
+// keys
 { 
   publicKey: '030bf73cb609f90d47a62eda1c411e5c7ee463db47fba5e5030b0f2932353d5618',
   privateKey: 'cb3e4b3d24e1c67c075de107c6a527cb7d37a1ec7d7f9bc85091c271a6020962',
@@ -48,7 +47,8 @@ console.log(keys); // Return keys pair
 }
 ```
 
-### Sending transaction
+### Transactions
+Send transaction
 ```js
 const tx = jark.createTransaction({
   to: 'DGd99C51SgwyEPqnxgxDNzbCB7YqHACYZa', // Recipient address
@@ -61,6 +61,30 @@ const tx = jark.createTransaction({
 jark.sendTransaction(tx)
   .then((res) => {
     console.log(res) // Result of the transaction
+  })
+  .catch((e) => {
+    console.log(e)
+  })
+```
+Send vote transaction
+```js
+// Vote for darkjarunik
+const tx = api.createVoteTransaction({
+  secret: 'slogan plug release deny solar seed inject tag light winner box oyster', // Voters passphrase
+  delegates: ['+03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad'], // Public key of the delegate to vote
+  secondPassphrase: null // Second passphrase (optionnal)
+})
+
+// Unvote for darkjarunik
+const tx = api.createVoteTransaction({
+  secret: 'slogan plug release deny solar seed inject tag light winner box oyster', // Voters passphrase
+  delegates: ['-03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad'], // Public key of the delegate to unvote
+  secondPassphrase: null
+})
+
+jark.sendTransaction(tx)
+  .then((res) => {
+    console.log(res) // Result of the vote transaction
   })
   .catch((e) => {
     console.log(e)

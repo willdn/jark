@@ -37,6 +37,39 @@ const tx = jark.createTransaction({
 }
 ```
 
+### Create vote transaction
+Create a new vote/unvote transaction
+
+```js
+// Vote for darkjarunik
+const tx = api.createVoteTransaction({
+  secret: 'slogan plug release deny solar seed inject tag light winner box oyster', // Voters passphrase
+  delegates: ['+03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad'], // Public key of the delegate to vote
+  secondPassphrase: null // Second passphrase (optionnal)
+})
+
+// Unvote for darkjarunik
+const tx = api.createVoteTransaction({
+  secret: 'slogan plug release deny solar seed inject tag light winner box oyster', // Voters passphrase
+  delegates: ['-03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad'], // Public key of the delegate to unvote
+  secondPassphrase: null // Second passphrase (optionnal)
+})
+```
+**Response**
+```
+{ 
+  type: 3,
+  amount: 0,
+  fee: 100000000,
+  recipientId: 'D7VSQMHvcf3j6o6LxEeAnazYYbVyeTJw4v',
+  senderPublicKey: '02e9239013baf66c98360cd267ba1917674e218a894ac2f36d72e40cffc6e55e8a',
+  timestamp: 20134872,
+  asset: { votes: [ '+03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad' ] },
+  signature: '304402201568fa523a7f069fe4ff61643fb76496d7774984779899ac6b0edccfc617abb20220566b3e0fa8500ea63cea050b5862a47e2021a18e4efade0ce423cf7176b0101a',
+  id: '45554984b1f29c796b0b2c494d5f3e6b88c8aff4597c2f59cb131d2aeed9156c'
+}
+```
+
 ### Send transaction
 Send a transaction to the network
 
