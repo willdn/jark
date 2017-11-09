@@ -1,6 +1,10 @@
 ## Peer
 Peer related API calls.
 
+- [Get peers list](#get-peers-list)
+- [Get peer](#get-peer)
+- [Get peer version](#get-peer-version)
+
 ### Get peers list
 Get an array of network peers
 

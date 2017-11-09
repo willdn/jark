@@ -25,7 +25,8 @@ const tx = jark.createTransaction({
 ```
 **Response**
 ```
-{ type: 0,
+{ 
+  type: 0,
   amount: 100000000,
   fee: 10000000,
   recipientId: 'DGd99C51SgwyEPqnxgxDNzbCB7YqHACYZa',
