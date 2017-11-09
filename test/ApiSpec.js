@@ -72,4 +72,17 @@ describe('API', () => {
       expect(keys.address.charAt(0)).to.be.equal('D')
     })
   })
+
+  describe('api.getSecondSignatureFee()', () => {
+    it('should return fee for 2nd signature', () => {
+      api.getSecondSignatureFee()
+        .then((res) => {
+          expect(res).to.be.a('number')
+        })
+        .catch((e) => {
+          console.log(e)
+          throw e
+        })
+    })
+  })
 })

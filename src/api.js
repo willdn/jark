@@ -124,3 +124,14 @@ export const getKeys = () => {
     address: address
   }
 }
+
+/**
+ * Get the second signature fee
+ * @return {Promise<Response>} Fee
+ */
+export const getSecondSignatureFee = () => {
+  return query(`api/signatures/fee`)
+  .then((res) => {
+    return res.fee
+  })
+}

@@ -52,3 +52,13 @@ console.log(jark.getNetwork()); // Return DEV network object
 jark.setNetwork('Main');
 console.log(jark.getNetwork()); // Return MAIN network object
 ```
+
+### Get second signature fee
+Get the second signature fee
+
+```js
+jark.getSecondSignatureFee()
+  .then((fee) => {
+    console.log(fee); // Return fee
+  })
+```
