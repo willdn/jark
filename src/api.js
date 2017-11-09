@@ -104,8 +104,8 @@ export const setNetwork = (netowrk) => {
  */
 export const queryBuilder = (data) => {
   if (data == null || Object.keys(data).length === 0) return ''
-  return Object.keys(data).map(function(key) {
-    return [key, data[key]].map(encodeURIComponent).join("=");
+  return Object.keys(data).map((key) => {
+    return [key, data[key]].map(encodeURIComponent).join("=")
   }).join("&")
 }
 
