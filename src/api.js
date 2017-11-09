@@ -119,7 +119,7 @@ export const getKeys = () => {
   const address = arkjs.crypto.getAddress(keys.publicKey)
   return {
     publicKey: keys.publicKey,
-    privateKey: keys.privateKey,
+    privateKey: keys.d.toBuffer().toString('hex'),
     passphrase: code.toString(),
     address: address
   }

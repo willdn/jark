@@ -17,7 +17,7 @@ describe('account', () => {
           console.log(e)
           throw e
         })
-    })
+    }).timeout(5000)
   })
 
   describe('api.getAccount()', () => {
