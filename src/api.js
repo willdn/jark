@@ -119,8 +119,19 @@ export const getKeys = () => {
   const address = arkjs.crypto.getAddress(keys.publicKey)
   return {
     publicKey: keys.publicKey,
-    privateKey: keys.privateKey,
+    privateKey: keys.d.toBuffer().toString('hex'),
     passphrase: code.toString(),
     address: address
   }
+}
+
+/**
+ * Get the second signature fee
+ * @return {Promise<Response>} Fee
+ */
+export const getSecondSignatureFee = () => {
+  return query(`api/signatures/fee`)
+  .then((res) => {
+    return res.fee
+  })
 }

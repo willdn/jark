@@ -59,6 +59,7 @@ describe('API', () => {
       api.setNetwork('Main')
       const keys = api.getKeys()
       expect(keys.publicKey.length).to.be.equal(66)
+      expect(keys.privateKey.length).to.be.equal(64)
       expect(keys.passphrase).to.be.a('string')
       expect(keys.address.charAt(0)).to.be.equal('A')
     })
@@ -66,8 +67,22 @@ describe('API', () => {
       api.setNetwork('Dev')
       const keys = api.getKeys()
       expect(keys.publicKey.length).to.be.equal(66)
+      expect(keys.privateKey.length).to.be.equal(64)
       expect(keys.passphrase).to.be.a('string')
       expect(keys.address.charAt(0)).to.be.equal('D')
+    })
+  })
+
+  describe('api.getSecondSignatureFee()', () => {
+    it('should return fee for 2nd signature', () => {
+      api.getSecondSignatureFee()
+        .then((res) => {
+          expect(res).to.be.a('number')
+        })
+        .catch((e) => {
+          console.log(e)
+          throw e
+        })
     })
   })
 })

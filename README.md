@@ -41,10 +41,10 @@ console.log(keys); // Return keys pair
 **Response**
 ```
 { 
-  publicKey: '03ae23d16816cc153f3a5d5be565b69d7c911f39767059a1266218569d3217df9b',
-  privateKey: '',
-  passphrase: 'service cup whisper bundle reform tourist fruit snack injury salmon teach develop',
-  address: 'AZWcpL5stobf777P8oENaJ2RMabXvZFS5V'
+  publicKey: '030bf73cb609f90d47a62eda1c411e5c7ee463db47fba5e5030b0f2932353d5618',
+  privateKey: 'cb3e4b3d24e1c67c075de107c6a527cb7d37a1ec7d7f9bc85091c271a6020962',
+  passphrase: 'quick tribe subway tackle wolf fitness leopard syrup kitten reject mansion vast',
+  address: 'ASJQHQZyMCCmsXw3Ad2ujiq7Sm8th6eJiy'
 }
 ```
 
