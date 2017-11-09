@@ -48,7 +48,10 @@ console.log(keys);
 ```
 
 ### Transactions
-Send transaction
+
+See [Transaction](/docs/transaction.md) for details
+
+#### Send transaction
 ```js
 const tx = jark.createTransaction({
   to: 'DGd99C51SgwyEPqnxgxDNzbCB7YqHACYZa', // Recipient address
@@ -66,7 +69,7 @@ jark.sendTransaction(tx)
     console.log(e)
   })
 ```
-Send vote transaction
+#### Send vote transaction
 ```js
 // Vote for darkjarunik
 const tx = api.createVoteTransaction({
