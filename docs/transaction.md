@@ -3,9 +3,19 @@ Transaction related API calls.
 
 ### Get transactions from address
 Get all the transactions from address
+[Options list](#get-transactions)
 
 ```js
 jark.getTransactionsFromAddress('Account address')
+  .then((transactions) => {
+    console.log(transactions); // Return transactions array
+  });
+
+// With options
+jark.getTransactionsFromAddress('Account address', {
+    'limit': 20,
+    'orderBy': 'amount:desc'
+  })
   .then((transactions) => {
     console.log(transactions); // Return transactions array
   });

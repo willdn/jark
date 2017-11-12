@@ -17,13 +17,14 @@ export const getTransactions = (options) => {
  * @param {string} - Address to get transactions from
  * @return {Promise<Response>} Transactions
  */
-export const getTransactionsFromAddress = (address) => {
-  return query(`api/transactions`, {
+export const getTransactionsFromAddress = (address, options) => {
+  return getTransactions({
     recipientId: address,
-    senderId: address
+    senderId: address,
+    ...options
   })
   .then((res) => {
-    return res.transactions
+    return res
   })
 }
 

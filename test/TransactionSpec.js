@@ -75,6 +75,18 @@ describe('Transaction', () => {
           throw e
         })
     })
+    it('should return transactions from address with options', () => {
+      return api.getTransactionsFromAddress(address, {
+        'limit': 1
+      })
+        .then((res) => {
+          expect(res.length).to.be.equal(1)
+        })
+        .catch((e) => {
+          console.log(e)
+          throw e
+        })
+    })
   })
 
   describe('api.sendTransaction()', () => {
