@@ -92,7 +92,6 @@ describe('delegate', () => {
     it('should return delegates according to search', () => {
       return api.searchDelegate('dark')
         .then((res) => {
-          console.log(res)
           expect(res).to.be.an('array')
         })
         .catch((e) => {
