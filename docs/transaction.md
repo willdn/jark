@@ -3,7 +3,12 @@ Transaction related API calls.
 
 ### Get transactions from address
 Get all the transactions from address
-[Options list](#get-transactions)
+#### Options
+
+- blockId: Block id of transaction. (String)
+- limit: Limit of transaction to send in response. Default is 20. (Number)
+- offset: Offset to load. (Integer number)
+- orderBy: Name of column to order. After column name must go "desc" or "asc" to choose order type. Example: orderBy=timestamp:desc (String)
 
 ```js
 jark.getTransactionsFromAddress('Account address')

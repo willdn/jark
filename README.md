@@ -1,7 +1,8 @@
 # jark
 
-[![Build Status](https://travis-ci.org/willdn/jark.svg?branch=master)](https://travis-ci.org/willdn/jark)
-[![Coverage Status](https://coveralls.io/repos/github/willdn/jark/badge.svg?branch=master)](https://coveralls.io/github/willdn/jark?branch=master)
+[![NPM Package](https://img.shields.io/npm/v/jark.svg?style=flat-square)](https://www.npmjs.com/package/jark)
+[![Build Status](https://img.shields.io/travis/willdn/jark.svg?branch=master&style=flat-square)](https://travis-ci.org/willdn/jark)
+[![Coverage Status](https://img.shields.io/coveralls/willdn/jark.svg?style=flat-square)](https://coveralls.io/github/willdn/jark?branch=master)
 
 JavaScript ARK API wrapper to interact with the [ARK](https://ark.io) blockchain. Can be used to query or make transaction on the ARK Mainnet and Devnet from the client as a browserify or webpack compiled module, or on the server as a standard Node.js module.
 
