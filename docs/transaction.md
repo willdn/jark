@@ -58,14 +58,14 @@ Create a vote/unvote transaction
 
 ```js
 // Vote for darkjarunik
-const tx = api.createVoteTransaction({
+const tx = jark.createVoteTransaction({
   passphrase: 'slogan plug release deny solar seed inject tag light winner box oyster', // Voters passphrase
   delegates: ['+03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad'], // Public key of the delegate to vote
   secondPassphrase: null // Second passphrase (optionnal)
 })
 
 // Unvote for darkjarunik
-const tx = api.createVoteTransaction({
+const tx = jark.createVoteTransaction({
   passphrase: 'slogan plug release deny solar seed inject tag light winner box oyster', // Voters passphrase
   delegates: ['-03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad'], // Public key of the delegate to unvote
   secondPassphrase: null // Second passphrase (optionnal)
@@ -91,7 +91,7 @@ Create a second passphrase transaction
 
 ```js
 // Vote for darkjarunik
-const tx = api.createSecondPassTransaction(
+const tx = jark.createSecondPassTransaction(
   'slogan plug release deny solar seed inject tag light winner box oyster', // Account passphrase
   'fly regular umbrella bridge time wrong enlist broccoli rapid during genre ball' // Second passhrase to set
 )
