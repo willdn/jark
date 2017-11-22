@@ -32,6 +32,7 @@
   "dependencies": {
     "arkjs": "^0.2.1",
     "axios": "^0.17.0",
+    "babel-runtime": "^6.26.0",
     "bitcore-mnemonic": "^1.5.0"
   },
   "devDependencies": {
