@@ -12,11 +12,11 @@ JavaScript ARK API wrapper to interact with the [ARK](https://ark.io) blockchain
 
 ## Documentation
 - [Account](/docs/account.md)
-- [Transaction](/docs/transaction.md)
+- [API](/docs/api.md)
 - [Blocks](/docs/blocks.md)
 - [Delegate](/docs/delegate.md)
 - [Peer](/docs/peer.md)
-- [API](/docs/api.md)
+- [Transaction](/docs/transaction.md)
 
 ## Usage
 
