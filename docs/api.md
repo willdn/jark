@@ -1,5 +1,11 @@
 ## API
 
+- [Get keys](#get-keys)
+- [Get endpoint](#get-endpoint)
+- [Get network](#get-network)
+- [Set network](#set-network)
+- [Get second signature fee](#get-second-signature-fee)
+
 ### Get keys
 Generate a public / private key pair
 
@@ -35,7 +41,7 @@ const endpoint = jark.getEndpoint();
 console.log(endpoint); // Return endpoint url
 ```
 
-### Get netowrk
+### Get network
 Get the current network object
 
 ```js

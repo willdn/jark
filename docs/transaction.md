@@ -1,8 +1,17 @@
 ## Transaction
 Transaction related API calls.
 
+- [Get transactions from address](#get-transactions-from-address)
+- [Create transaction](#create-transaction)
+- [Create vote transaction](#create-vote-transaction)
+- [Create signature transaction](#create-signature-transaction)
+- [Send transaction](#send-transaction)
+- [Get transactions](#get-transactions)
+- [Get transaction by id](#get-transaction-by-id)
+- [Get unconfirmed transactions](#get-unconfirmed-transactions)
+
 ### Get transactions from address
-Get all the transactions from address
+Get all the transactions from a given address
 #### Options
 
 - blockId: Block id of transaction. (String)
@@ -197,7 +206,7 @@ jark.getTransactions({
 ]
 ```
 ### Get transaction by id
-Get transaction details by transaction hash (id)
+Get transaction details given a transaction hash (id)
 
 ```js
 jark.getTransactionById('e40ce11cab82736da1cc91191716f3c1f446ca7b6a9f4f93b7120ef105ba06e8')
