@@ -1,8 +1,14 @@
 ## Accounts
 Account related API calls.
 
+- [Get balance](#get-balance)
+- [Get public key](#get-public-key)
+- [Get account](#get-account)
+- [Get delegates from address](#get-delegates-from-address)
+- [Get delegates fee](#get-delegates-fee)
+
 ### Get balance
-Get the balance of the address
+Get the balance of a given address
 
 ```js
 jark.getBalance('Account address')
@@ -12,7 +18,7 @@ jark.getBalance('Account address')
 ```
 
 ### Get public key
-Get the public key of the address
+Get the public key of a given address
 
 ```js
 jark.getPublicKey('Account address')
@@ -21,8 +27,8 @@ jark.getPublicKey('Account address')
   });
 ```
 
-### Get account details
-Get the account details of the address
+### Get account
+Get the account details of a given address
 
 ```js
 jark.getAccount('Account address')
@@ -42,6 +48,34 @@ jark.getAccount('Account address')
   "secondPublicKey": "Second signature public key. (Hex String)"
 }
 ```
+### Get delegates from address
+Get delegates from a given address
+*Note : * This return an array, however, it is possible to elect only one delegate.
+
+```js
+jark.getDelegatesFromAddress()
+  .then((delegates) => {
+    console.log(delegates); // Return delegate from address
+  });
+```
+
+**Response**
+```
+[
+  {
+    "username": "darkjarunik",
+    "address": "DBi2HdDY8TqMCD2aFLVomEF92gzeDmEHmR",
+    "publicKey": "03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad",
+    "vote": "46444783236470",
+    "producedblocks": 35703,
+    "missedblocks": 1192,
+    "rate": 4,
+    "approval": 0.36,
+    "productivity": 96.77
+  }
+]
+```
+
 ### Get delegates fee
 Get delegate register fee
 

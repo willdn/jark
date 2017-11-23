@@ -10,6 +10,14 @@ JavaScript ARK API wrapper to interact with the [ARK](https://ark.io) blockchain
 
 `npm i jark --save`
 
+## Documentation
+- [Account](/docs/account.md)
+- [Transaction](/docs/transaction.md)
+- [Blocks](/docs/blocks.md)
+- [Delegate](/docs/delegate.md)
+- [Peer](/docs/peer.md)
+- [API](/docs/api.md)
+
 ## Usage
 
 ```js
@@ -117,15 +125,6 @@ jark.getDelegates(params)
     console.log(delegates); // Return delegates array according to params
   });
 ```
-
-
-## Documentation
-- [Account](/docs/account.md)
-- [Transaction](/docs/transaction.md)
-- [Blocks](/docs/blocks.md)
-- [Delegate](/docs/delegate.md)
-- [Peer](/docs/peer.md)
-- [API](/docs/api.md)
 
 ## Build
 
