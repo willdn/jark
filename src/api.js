@@ -2,20 +2,24 @@ import axios from 'axios'
 import ark from 'arkjs'
 import Mnemonic from 'bitcore-mnemonic'
 import { getNetHash } from './block'
+import seeds from './seeds'
 
 export const networksType = {
   MAIN: {
     label: 'Main',
-    version: 0x17
+    version: 0x17,
+    port: 4001
   },
   DEV: {
     label: 'Dev',
-    version: 0x1e
+    version: 0x1e,
+    port: 4002
   }
 }
 
 export const arkjs = ark
 let currentNetwork = networksType.MAIN
+let endpoint = seeds.MAIN[0]
 
 /**
  * Query API
@@ -63,10 +67,7 @@ export const post = (url, data) => {
  * @return {string} Endpoint
  */
 export const getEndpoint = () => {
-  switch (getNetwork().label) {
-    case networksType.MAIN.label: return 'https://node1.arknet.cloud'
-    case networksType.DEV.label: return 'https://dev.arkcoin.net'
-  }
+  return endpoint
 }
 
 /**
@@ -79,21 +80,24 @@ export const getNetwork = () => {
 
 /**
  * Set network
- * @param {string} - Network name to use
- * @return {Promise<Response>} Query result
+ * @param {string} netowrk - Network name to use
+ * @param {string} url - Set a custom API endpoint
  */
-export const setNetwork = (netowrk) => {
+export const setNetwork = (netowrk, url = null) => {
   switch(netowrk) {
     case networksType.DEV.label: {
       currentNetwork = networksType.DEV
       arkjs.crypto.setNetworkVersion(networksType.DEV.version)
-      return true
-    }
+      endpoint = seeds.DEV[0]
+    } break
     case networksType.MAIN.label : {
       currentNetwork = networksType.MAIN
       arkjs.crypto.setNetworkVersion(networksType.MAIN.version)
-      return true
-    }
+      endpoint = seeds.MAIN[0]
+    } break
+  }
+  if (url != null) {
+    endpoint = `${url}:${getNetwork().port}`
   }
 }
 
