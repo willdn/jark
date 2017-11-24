@@ -21,11 +21,11 @@ describe('API', () => {
     })
     it('should set a particular endpoint Dev', () => {
       api.setNetwork('Dev', '37.59.70.165')
-      expect(api.getEndpoint()).to.be.equal('37.59.70.165:4002')
+      expect(api.getEndpoint()).to.be.equal('http://37.59.70.165:4002')
     })
     it('should set a particular endpoint Main', () => {
       api.setNetwork('Main', '37.59.70.165')
-      expect(api.getEndpoint()).to.be.equal('37.59.70.165:4001')
+      expect(api.getEndpoint()).to.be.equal('http://37.59.70.165:4001')
     })
   })
 

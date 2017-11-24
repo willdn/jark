@@ -97,7 +97,7 @@ export const setNetwork = (netowrk, url = null) => {
     } break
   }
   if (url != null) {
-    endpoint = `${url}:${getNetwork().port}`
+    endpoint = `http://${url}:${getNetwork().port}`
   }
 }
 
