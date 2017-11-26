@@ -11,7 +11,7 @@ describe('account', () => {
       return api.getBalance(address)
         .then((res) => {
           expect(res).to.be.a('number')
-          expect(res).to.be.equal(20.1)
+          expect(res).to.be.at.least(20)
         })
         .catch((e) => {
           console.log(e)
