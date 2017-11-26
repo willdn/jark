@@ -80,12 +80,12 @@ export const getNetwork = () => {
 
 /**
  * Set network
- * @param {string} netowrk - Network name to use
+ * @param {string} network - Network name to use
  * @param {string} url - Set a custom API endpoint
  */
-export const setNetwork = (netowrk, url = null) => {
-  if (netowrk != null) netowrk = formatNetworkType(netowrk)
-  switch(netowrk) {
+export const setNetwork = (network, url = null) => {
+  if (network != null) network = formatNetworkType(network)
+  switch(network) {
     case networksType.DEV.label: {
       currentNetwork = networksType.DEV
       arkjs.crypto.setNetworkVersion(networksType.DEV.version)
@@ -104,10 +104,27 @@ export const setNetwork = (netowrk, url = null) => {
 }
 
 /**
- * Get seeds
- * @return {Object} Seeds list
+ * Get seeds for the current network type
+ * If network given, return seeds of this network
+ * @return {array} Seeds list
  */
 export const getSeeds = (network = null) => {
+  if (network != null) {
+    network = formatNetworkType(network) // Format network label
+  } else {
+    return seeds[getNetwork().label.toUpperCase()]
+  }
+  switch(network) {
+    case networksType.MAIN.label: return seeds.MAIN
+    case networksType.DEV.label: return seeds.DEV
+  }
+}
+
+/**
+ * Get all seeds
+ * @return {Object} Seeds list
+ */
+export const getAllSeeds = () => {
   return seeds
 }
 

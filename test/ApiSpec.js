@@ -117,20 +117,35 @@ describe('API', () => {
   })
 
   describe('api.getSeeds()', () => {
-    it('should return seeds', () => {
+    it('should return seeds for current network Main', () => {
+      api.setNetwork('Main')
       const seeds = api.getSeeds()
-      expect(seeds).to.haveOwnProperty('MAIN')
-      expect(seeds).to.haveOwnProperty('DEV')
+      expect(seeds).to.be.an('array')
+      expect(seeds[0]).to.be.equal('https://node1.arknet.cloud')
+    })
+    it('should return seeds for current network Main', () => {
+      api.setNetwork('Dev')
+      const seeds = api.getSeeds()
+      expect(seeds).to.be.an('array')
+      expect(seeds[0]).to.be.equal( 'https://dev.arkcoin.net')
     })
     it('should return DEV seeds', () => {
       const seeds = api.getSeeds('Dev')
-      console.log(seeds)
-      // expect(seeds).to.haveOwnProperty('DEV')
+      expect(seeds).to.be.an('array')
+      expect(seeds[0]).to.be.equal('https://dev.arkcoin.net')
     })
     it('should return DEV seeds', () => {
       const seeds = api.getSeeds('Main')
-      console.log(seeds)
-      // expect(seeds).to.haveOwnProperty('DEV')
+      expect(seeds).to.be.an('array')
+      expect(seeds[0]).to.be.equal('https://node1.arknet.cloud')
+    })
+  })
+
+  describe('api.getAllSeeds()', () => {
+    it('should return all seeds', () => {
+      const seeds = api.getAllSeeds()
+      expect(seeds).to.be.haveOwnProperty('MAIN')
+      expect(seeds).to.be.haveOwnProperty('DEV')
     })
   })
 
