@@ -95,6 +95,7 @@ console.log(seeds); // Array of current network seeds
 
 Get array of a given network type
 ```js
+// Get seeds list for the Dev network
 const seeds = jark.getSeeds('Dev');
 console.log(seeds); // Array of dev network seeds
 ```
@@ -103,12 +104,6 @@ console.log(seeds); // Array of dev network seeds
 [
   'https://dev.arkcoin.net'
 ]
-```
-
-```js
-// Get seeds list for the main network
-const seeds = jark.getSeeds('Main');
-console.log(seeds);
 ```
 
 ### Get all seeds
