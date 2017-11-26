@@ -80,11 +80,12 @@ export const getNetwork = () => {
 
 /**
  * Set network
- * @param {string} netowrk - Network name to use
+ * @param {string} network - Network name to use
  * @param {string} url - Set a custom API endpoint
  */
-export const setNetwork = (netowrk, url = null) => {
-  switch(netowrk) {
+export const setNetwork = (network, url = null) => {
+  if (network != null) network = formatNetworkType(network)
+  switch(network) {
     case networksType.DEV.label: {
       currentNetwork = networksType.DEV
       arkjs.crypto.setNetworkVersion(networksType.DEV.version)
@@ -97,8 +98,34 @@ export const setNetwork = (netowrk, url = null) => {
     } break
   }
   if (url != null) {
-    endpoint = `http://${url}:${getNetwork().port}`
+    if (!url.startsWith('http')) url = `http://${url}`
+    endpoint = `${url}:${getNetwork().port}`
   }
+}
+
+/**
+ * Get seeds for the current network type
+ * If network given, return seeds of this network
+ * @return {array} Seeds list
+ */
+export const getSeeds = (network = null) => {
+  if (network != null) {
+    network = formatNetworkType(network) // Format network label
+  } else {
+    return seeds[getNetwork().label.toUpperCase()]
+  }
+  switch(network) {
+    case networksType.MAIN.label: return seeds.MAIN
+    case networksType.DEV.label: return seeds.DEV
+  }
+}
+
+/**
+ * Get all seeds
+ * @return {Object} Seeds list
+ */
+export const getAllSeeds = () => {
+  return seeds
 }
 
 /**
@@ -129,6 +156,15 @@ export const getKeys = (passphrase = null) => {
     passphrase: code.toString(),
     address: address
   }
+}
+
+/**
+ * Format network type
+ * @param {string} network - Network type
+ * @return {string} Formatted network type
+ */
+const formatNetworkType = (network) => {
+  return network.charAt(0).toUpperCase() + network.slice(1)
 }
 
 /**

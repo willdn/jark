@@ -19,6 +19,18 @@ describe('API', () => {
       api.setNetwork('Network?')
       expect(api.getNetwork().label).to.be.equal('Dev')
     })
+    it('should return correct Dev network', () => {
+      api.setNetwork('DEV')
+      expect(api.getNetwork().label).to.be.equal('Dev')
+      api.setNetwork('deV')
+      expect(api.getNetwork().label).to.be.equal('Dev')
+    })
+    it('should return correct Main network', () => {
+      api.setNetwork('main')
+      expect(api.getNetwork().label).to.be.equal('Main')
+      api.setNetwork('MaIn')
+      expect(api.getNetwork().label).to.be.equal('Main')
+    })
     it('should set a particular endpoint Dev', () => {
       api.setNetwork('Dev', '37.59.70.165')
       expect(api.getEndpoint()).to.be.equal('http://37.59.70.165:4002')
@@ -26,6 +38,14 @@ describe('API', () => {
     it('should set a particular endpoint Main', () => {
       api.setNetwork('Main', '37.59.70.165')
       expect(api.getEndpoint()).to.be.equal('http://37.59.70.165:4001')
+    })
+    it('should set a particular endpoint Main 2 ', () => {
+      api.setNetwork('Main', 'http://37.59.70.165')
+      expect(api.getEndpoint()).to.be.equal('http://37.59.70.165:4001')
+    })
+    it('should set a particular endpoint Main SSL', () => {
+      api.setNetwork('Main', 'https://node1.arknet.cloud')
+      expect(api.getEndpoint()).to.be.equal('https://node1.arknet.cloud:4001')
     })
   })
 
@@ -93,6 +113,39 @@ describe('API', () => {
       expect(keys.address).to.be.equal('D7VSQMHvcf3j6o6LxEeAnazYYbVyeTJw4v')
       expect(keys.publicKey).to.be.equal('02e9239013baf66c98360cd267ba1917674e218a894ac2f36d72e40cffc6e55e8a')
       expect(keys.privateKey).to.be.equal('73079e6c1ebce0c37cf824ee4132a7c2d6a3340cd80eea1aa23b566911b42005')
+    })
+  })
+
+  describe('api.getSeeds()', () => {
+    it('should return seeds for current network Main', () => {
+      api.setNetwork('Main')
+      const seeds = api.getSeeds()
+      expect(seeds).to.be.an('array')
+      expect(seeds[0]).to.be.equal('https://node1.arknet.cloud')
+    })
+    it('should return seeds for current network Main', () => {
+      api.setNetwork('Dev')
+      const seeds = api.getSeeds()
+      expect(seeds).to.be.an('array')
+      expect(seeds[0]).to.be.equal( 'https://dev.arkcoin.net')
+    })
+    it('should return DEV seeds', () => {
+      const seeds = api.getSeeds('Dev')
+      expect(seeds).to.be.an('array')
+      expect(seeds[0]).to.be.equal('https://dev.arkcoin.net')
+    })
+    it('should return DEV seeds', () => {
+      const seeds = api.getSeeds('Main')
+      expect(seeds).to.be.an('array')
+      expect(seeds[0]).to.be.equal('https://node1.arknet.cloud')
+    })
+  })
+
+  describe('api.getAllSeeds()', () => {
+    it('should return all seeds', () => {
+      const seeds = api.getAllSeeds()
+      expect(seeds).to.be.haveOwnProperty('MAIN')
+      expect(seeds).to.be.haveOwnProperty('DEV')
     })
   })
 
