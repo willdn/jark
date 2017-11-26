@@ -84,6 +84,7 @@ export const getNetwork = () => {
  * @param {string} url - Set a custom API endpoint
  */
 export const setNetwork = (netowrk, url = null) => {
+  if (netowrk != null) netowrk = formatNetworkType(netowrk)
   switch(netowrk) {
     case networksType.DEV.label: {
       currentNetwork = networksType.DEV
@@ -100,6 +101,14 @@ export const setNetwork = (netowrk, url = null) => {
     if (!url.startsWith('http')) url = `http://${url}`
     endpoint = `${url}:${getNetwork().port}`
   }
+}
+
+/**
+ * Get seeds
+ * @return {Object} Seeds list
+ */
+export const getSeeds = (network = null) => {
+  return seeds
 }
 
 /**
@@ -130,6 +139,15 @@ export const getKeys = (passphrase = null) => {
     passphrase: code.toString(),
     address: address
   }
+}
+
+/**
+ * Format network type
+ * @param {string} network - Network type
+ * @return {string} Formatted network type
+ */
+const formatNetworkType = (network) => {
+  return network.charAt(0).toUpperCase() + network.slice(1)
 }
 
 /**

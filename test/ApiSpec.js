@@ -19,6 +19,18 @@ describe('API', () => {
       api.setNetwork('Network?')
       expect(api.getNetwork().label).to.be.equal('Dev')
     })
+    it('should return correct Dev network', () => {
+      api.setNetwork('DEV')
+      expect(api.getNetwork().label).to.be.equal('Dev')
+      api.setNetwork('deV')
+      expect(api.getNetwork().label).to.be.equal('Dev')
+    })
+    it('should return correct Main network', () => {
+      api.setNetwork('main')
+      expect(api.getNetwork().label).to.be.equal('Main')
+      api.setNetwork('MaIn')
+      expect(api.getNetwork().label).to.be.equal('Main')
+    })
     it('should set a particular endpoint Dev', () => {
       api.setNetwork('Dev', '37.59.70.165')
       expect(api.getEndpoint()).to.be.equal('http://37.59.70.165:4002')
@@ -101,6 +113,24 @@ describe('API', () => {
       expect(keys.address).to.be.equal('D7VSQMHvcf3j6o6LxEeAnazYYbVyeTJw4v')
       expect(keys.publicKey).to.be.equal('02e9239013baf66c98360cd267ba1917674e218a894ac2f36d72e40cffc6e55e8a')
       expect(keys.privateKey).to.be.equal('73079e6c1ebce0c37cf824ee4132a7c2d6a3340cd80eea1aa23b566911b42005')
+    })
+  })
+
+  describe('api.getSeeds()', () => {
+    it('should return seeds', () => {
+      const seeds = api.getSeeds()
+      expect(seeds).to.haveOwnProperty('MAIN')
+      expect(seeds).to.haveOwnProperty('DEV')
+    })
+    it('should return DEV seeds', () => {
+      const seeds = api.getSeeds('Dev')
+      console.log(seeds)
+      // expect(seeds).to.haveOwnProperty('DEV')
+    })
+    it('should return DEV seeds', () => {
+      const seeds = api.getSeeds('Main')
+      console.log(seeds)
+      // expect(seeds).to.haveOwnProperty('DEV')
     })
   })
 
