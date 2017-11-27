@@ -33,19 +33,19 @@ describe('API', () => {
     })
     it('should set a particular endpoint Dev', () => {
       api.setNetwork('Dev', '37.59.70.165')
-      expect(api.getEndpoint()).to.be.equal('http://37.59.70.165:4002')
+      expect(api.getEndpoint()).to.be.equal('http://37.59.70.165')
     })
     it('should set a particular endpoint Main', () => {
-      api.setNetwork('Main', '37.59.70.165')
+      api.setNetwork('Main', '37.59.70.165:4001')
       expect(api.getEndpoint()).to.be.equal('http://37.59.70.165:4001')
     })
     it('should set a particular endpoint Main 2 ', () => {
       api.setNetwork('Main', 'http://37.59.70.165')
-      expect(api.getEndpoint()).to.be.equal('http://37.59.70.165:4001')
+      expect(api.getEndpoint()).to.be.equal('http://37.59.70.165')
     })
     it('should set a particular endpoint Main SSL', () => {
       api.setNetwork('Main', 'https://node1.arknet.cloud')
-      expect(api.getEndpoint()).to.be.equal('https://node1.arknet.cloud:4001')
+      expect(api.getEndpoint()).to.be.equal('https://node1.arknet.cloud')
     })
   })
 
