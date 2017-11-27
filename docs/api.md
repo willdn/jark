@@ -62,8 +62,8 @@ console.log(network); // Return network object
 
 ### Set network
 Set network. *Note:* second parameter is optional, if given it must be a valid
-URL API node otherwise further requests will fail. Port number must not be mentionned, as it is 
-determined by current network (*Main*: 4001, *Dev*: 4002).
+URL API node otherwise further requests will fail. You must provide port with IP *i.e.* 
+`jark.setNetwork('Main', '37.59.70.165:4002')` vs `jark.setNetwork('Main', 'https://api.arknode.net')`
 
 ```js
 jark.setNetwork('Dev');
@@ -72,9 +72,9 @@ console.log(jark.getNetwork()); // Return DEV network object
 jark.setNetwork('Main');
 console.log(jark.getNetwork()); // Return MAIN network object
 
-// Set network to Dev and connect to node 37.59.70.165
-jark.setNetwork('Dev', '37.59.70.165');
-console.log(jark.getEndpoint()); // 37.59.70.165:4002
+// Set network to Dev and connect to node 37.59.70.165:4002
+jark.setNetwork('Dev', '37.59.70.165:4002');
+console.log(jark.getEndpoint());
 ```
 
 ### Get seeds
@@ -95,6 +95,7 @@ console.log(seeds); // Array of current network seeds
 
 Get array of a given network type
 ```js
+// Get seeds list for the Dev network
 const seeds = jark.getSeeds('Dev');
 console.log(seeds); // Array of dev network seeds
 ```
@@ -103,12 +104,6 @@ console.log(seeds); // Array of dev network seeds
 [
   'https://dev.arkcoin.net'
 ]
-```
-
-```js
-// Get seeds list for the main network
-const seeds = jark.getSeeds('Main');
-console.log(seeds);
 ```
 
 ### Get all seeds
